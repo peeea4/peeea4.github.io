@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap');
+
+$font-family: Raleway;
+$font-color: #2B2B2B;
+$titles-font-weight: 700;
+
+$h1-fz: 50px;
+$h2-fz: 40px;
+$h3-fz: 25px;
+
+$s-desc-fz: 16px;
+$m-desc-fz: 20px;
+$l-desc-fz: 22px;
+
+$link-fz: 20px;
+$link-fw: 500;
+
+$s-desc-fw: 300;
+$l-desc-fw: 400;
+
+h1 {
+    font-family: $font-family;
+    font-size: $h1-fz;
+    font-weight: $titles-font-weight;
+    color: $font-color;
+}
+h2 {
+    font-family: $font-family;
+    font-size: $h2-fz;
+    font-weight: $titles-font-weight;
+    color: $font-color;
+}
+h3 {
+    font-family: $font-family;
+    font-size: $h3-fz;
+    font-weight: $titles-font-weight;
+    color: $font-color;
+}
+.link {
+    font-family: $font-family;
+    font-size: $link-fz;
+    font-weight: $link-fw;
+    color: $font-color;
+    text-decoration: none;
+}
+.description {
+    font-family: $font-family;
+    color: $font-color;
+}
+.large {
+    font-size: $l-desc-fz;
+    font-weight: $l-desc-fw;
+}
+.small {
+    font-size: $s-desc-fz;
+    font-weight: $s-desc-fw;
+}
+.medium {
+    font-size: $m-desc-fz;
+    font-weight: $l-desc-fw;
+}

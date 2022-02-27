@@ -4,9 +4,10 @@ $font-family: Raleway;
 $font-color: #2B2B2B;
 $titles-font-weight: 700;
 
-$h1-fz: 50px;
+$h1-fz: 55px;
 $h2-fz: 40px;
 $h3-fz: 25px;
+$h4-fz: 22px;
 
 $s-desc-fz: 16px;
 $m-desc-fz: 20px;
@@ -23,6 +24,8 @@ h1 {
     font-size: $h1-fz;
     font-weight: $titles-font-weight;
     color: $font-color;
+    line-height: 60px;
+    text-align: right;
 }
 h2 {
     font-family: $font-family;
@@ -35,12 +38,28 @@ h3 {
     font-size: $h3-fz;
     font-weight: $titles-font-weight;
     color: $font-color;
+    text-align: center;
+}
+h4 {
+    font-family: $font-family;
+    font-size: $h4-fz;
+    font-weight: $titles-font-weight;
+    color: $font-color;
+    text-align: center;
 }
 .link {
     font-family: $font-family;
     font-size: $link-fz;
     font-weight: $link-fw;
     color: $font-color;
+    text-decoration: none;
+}
+.btn {
+    font-family: $font-family;
+    font-size: $link-fz;
+    font-weight: $link-fw;
+    color: $font-color;
+    letter-spacing: 1px;
     text-decoration: none;
 }
 .description {

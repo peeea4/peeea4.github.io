@@ -1,14 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
 .btn {
-    font-family: 'Mukta', sans-serif;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #000000ed;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    border: 0;
-    cursor: pointer;
-    width: 12em;
-    padding: 0.3em 0em;
+    flex: 1 1 auto;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid black;
+    text-align: center;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .3s;
+    position: relative;
+    z-index: 0;
+    &:after {
+        position: absolute;
+        transition: .3s;
+        content: '';
+        width: 0;
+        left: 50%;
+        bottom: 0;
+        background: rgb(108,80,223,1);
+    }
+    &:after {
+        height: 120%;
+        left: -10%;
+        transform: skewX(10deg);
+        z-index: -1;
+    }
+    &:hover {
+        cursor: pointer;
+        color: white;
+        &:after {
+            left: -10%;
+            width: 120%;
+        }
+    }
 }

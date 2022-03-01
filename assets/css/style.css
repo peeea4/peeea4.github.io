@@ -194,6 +194,75 @@ html .container {
   width: 50%;
 }
 
+/* C O M P A R E */
+.compare {
+  padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+}
+.compare .compare-info {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 7vh;
+}
+.compare .compare-content {
+  display: flex;
+  width: 100%;
+}
+.compare .compare-content .compare-saved {
+  width: 50%;
+  border-right: 2px solid black;
+}
+.compare .compare-content .compare-saved .card {
+  display: flex;
+  align-items: flex-end;
+}
+.compare .compare-content .compare-saved .card .compare-points {
+  width: 40%;
+}
+.compare .compare-content .compare-saved .card .compare-points p {
+  padding-bottom: 0.5em;
+}
+.compare .compare-content .compare-saved .card .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.compare .compare-content .compare-saved .card .info .nick-name {
+  padding-bottom: 2vh;
+}
+.compare .compare-content .compare-saved .card .info .user-image {
+  width: 80%;
+  padding-bottom: 7%;
+}
+.compare .compare-content .compare-saved .card .info .stat p {
+  padding-bottom: 0.5em;
+}
+.compare .compare-add {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 50%;
+  margin: 0 10px;
+}
+.compare .compare-add .compare-inputs {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+.compare .compare-add .compare-inputs .input {
+  font-size: 20px;
+  font-family: Raleway;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.7em 1.5em;
+}
+.compare .compare-add .btn {
+  flex: none;
+  width: 100%;
+  margin: 0;
+}
 /* T U T O R I A L */
 .tutorial {
   padding-top: 10%;
@@ -256,8 +325,8 @@ html .container {
        text-align-last: left;
   background-color: #eee;
   cursor: pointer;
-  padding: 18px;
-  margin: 20px;
+  padding: 18px 10px;
+  margin: 20px 5px;
   width: 100%;
   border: none;
   outline: none;

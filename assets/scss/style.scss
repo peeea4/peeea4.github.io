@@ -88,6 +88,89 @@ html {
     }
 }
 
+/* C O M P A R E */
+
+.compare {
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    .compare-info {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 7vh;
+    }
+    .compare-content {
+        display: flex;
+        width: 100%;
+        .compare-saved {
+            width: 50%;
+            border-right: 2px solid black;
+            .card {
+                display: flex;
+                align-items: flex-end;
+                .compare-points {
+                    width: 40%;
+                    p {
+                        padding-bottom: 0.5em;
+                    }
+                }
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .nick-name {
+                        padding-bottom: 2vh;
+                    }
+                    .user-image {
+                        width: 80%;
+                        padding-bottom: 7%;
+                    }
+                    .stat {
+                        p {
+                            padding-bottom: 0.5em;
+                        }
+                    }
+                }
+                .user {
+                }
+                .server {
+                }
+            }
+        }
+    }
+    .compare-add {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 50%;
+        margin: 0 10px;
+        .compare-inputs {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5%;
+            .input {
+                font-size: 20px;
+                font-family: $font-family;
+                border: 2px solid black;
+                border-radius: 5px;
+                padding: 0.7em 1.5em;
+            }
+            .star {
+            }
+            .user {
+            }
+        }
+        .btn {
+            flex: none;
+            width: 100%;
+            margin: 0;
+        }
+        .enter {
+        }
+    }
+}
+
 /* T U T O R I A L */
 
 .tutorial {
@@ -152,8 +235,8 @@ html {
         text-align-last: left;
         background-color: #eee;
         cursor: pointer;
-        padding: 18px;
-        margin: 20px;
+        padding: 18px 10px;
+        margin: 20px 5px;
         width: 100%;
         border: none;
         outline: none;

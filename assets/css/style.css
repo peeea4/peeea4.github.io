@@ -507,6 +507,7 @@ h4 {
   position: absolute;
   top: -5px;
 }
+
 .navigation {
   display: grid;
   grid-template-columns: auto 50% 20%;

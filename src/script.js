@@ -1,121 +1,61 @@
-import { usersList } from "./users.js"
+// fetch("https://api.opendota.com/api/players/252812353/heroes")
+// .then(response => {
+// 	return response.json()
+// })
+// .then(data => {
+// 	console.log(data);
+// })
 
-let btnsShow = Array.from(document.querySelectorAll(".show-text"));
-btnsShow.forEach(element => {
-	element.addEventListener("click", () => {
-		element.classList.toggle("active");
-		let panel = element.nextElementSibling;
-		if (panel.style.maxHeight) {
-			panel.style.maxHeight = null;
-		} else {
-			panel.style.maxHeight = panel.scrollHeight + "px";
-		}
-	});
-});
+/*	
+191281576				info about most popular hero
+				**дровка**
+	against_games: 71
+	against_win: 28
+	games: 70
+	hero_id: "6"
+	last_played: 1619963508
+	win: 38
+	with_games: 62
+	with_win: 29
 
-let btnsNavigate = Array.from(document.querySelectorAll(".btn"));
-btnsNavigate.forEach(element => {
-	if (element.classList.contains("try")) {
-		element.addEventListener("click", () => {
-			document.location.href = "/index.html#compare"
-		})
-	} else if (element.classList.contains("example")) {
-		element.addEventListener("click", () => {
-			document.location.href = "/index.html#tutorial"
-		})
-	}
-})
+*/
 
+/*					info about last match
 
-let btnCompare = document.querySelector(".enter");
-btnCompare.addEventListener("click", () => {
-	let inputStar = document.querySelector(".star").value;
-	searchStar(inputStar);
-})
+	assists: 15
+	deaths: 6
+	duration: 1674
+	game_mode: 22
+	hero_id: 26
+	kills: 6
 
-function searchStar(inputStar) {
-	for (let index = 1; index < 6; index++) {
-		if (usersList[index].nickname == inputStar) {
-			createStarCard(usersList[index]);
-		}
-	}
-}
-let serverContainer = document.querySelector(".server");
-function createStarCard(array) {
-	let statContainer = document.createElement("div");
-	statContainer.classList.add('stat')
-	serverContainer.appendChild(statContainer);
-	for (let key in array) {
-		switch (key) {
-			case "image":
-				let statName = document.createElement("img");
-				statName.classList.add('user-image');
-				statName.src = array[key];
-				serverContainer.appendChild(statName);
-				break;
-			case "age":
-				let statAge = document.createElement("p");
-				statAge.classList.add('description', 'large');
-				statAge.innerHTML = array[key];
-				statContainer.appendChild(statAge);
-				break;
-			case "rating":
-				let statRating = document.createElement("p");
-				statRating.classList.add('description', 'large');
-				statRating.innerHTML = array[key];
-				statContainer.appendChild(statRating);
-				break;
-			case "impact":
-				let statImpact = document.createElement("p");
-				statImpact.classList.add('description', 'large');
-				statImpact.innerHTML = array[key];
-				statContainer.appendChild(statImpact);
-				break;
-			case "dpr":
-				let statDpr = document.createElement("p");
-				statDpr.classList.add('description', 'large');
-				statDpr.innerHTML = array[key];
-				statContainer.appendChild(statDpr);
-				break;
-			case "apr":
-				let statApr = document.createElement("p");
-				statApr.classList.add('description', 'large');
-				statApr.innerHTML = array[key];
-				statContainer.appendChild(statApr);
-				break;
-			case "kast":
-				let statKast = document.createElement("p");
-				statKast.classList.add('description', 'large');
-				statKast.innerHTML = array[key];
-				statContainer.appendChild(statKast);
-				break;
-			case "kpr":
-				let statKpr = document.createElement("p");
-				statKpr.classList.add('description', 'large');
-				statKpr.innerHTML = array[key];
-				statContainer.appendChild(statKpr);
-				break;
-			case "headshots":
-				let statHeadshots = document.createElement("p");
-				statHeadshots.classList.add('description', 'large');
-				statHeadshots.innerHTML = array[key];
-				statContainer.appendChild(statHeadshots);
-				break;
-			case "mapsPlayed":
-				let statMapsPlayed = document.createElement("p");
-				statMapsPlayed.classList.add('description', 'large');
-				statMapsPlayed.innerHTML = array[key];
-				statContainer.appendChild(statMapsPlayed);
-				break;
+	player_slot: 129
+	radiant_win: true
+	start_time: 1644666786
 
-		}
-		// console.log(key, array[key]);
-	}
-}
-// создаём элементы с именами - key и блоки со значениями - ${array[key]}
+*/
 
+/*					info about user
 
+	competitive_rank: null
+	leaderboard_rank: null
+	mmr_estimate: {estimate: 1881}
+	profile:
+	account_id: 252812353
+	avatar: "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/db/dbd074e76e9a3da7e348ce1a7d97af858e64ecf6.jpg"
+	avatarfull: "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/db/dbd074e76e9a3da7e348ce1a7d97af858e64ecf6_full.jpg"
+	avatarmedium: "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/db/dbd074e76e9a3da7e348ce1a7d97af858e64ecf6_medium.jpg"
+	cheese: 0
+	is_contributor: false
+	last_login: "2022-03-02T18:27:45.783Z"
+	loccountrycode: "BY"
+	name: null
+	personaname: "мойтиммейтдаун"
+	plus: false
+	profileurl: "https://steamcommunity.com/id/peeea4/"
+	steamid: "76561198213078081"
+	rank_tier: 23
+	solo_competitive_rank: null
+	tracked_until: "1648985933"
 
-// function createCard() {
-//     let cardContainer = document.querySelector(".compare-saved");
-// }
+*/

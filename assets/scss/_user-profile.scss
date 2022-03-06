@@ -1,0 +1,70 @@
+.user-profile {
+    padding: 5% 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid black;
+    .profile-info {
+        display: flex;
+        .medium-img {
+            border: 3px solid black;
+            width: 256px;
+            height: 256px;
+        }
+        .pofile-description {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: space-between;
+            .personal-data {
+                margin: 0 0 0 5%;
+                .name-and-coutry {
+                    display: flex;
+                    align-items: center;
+                    margin: 0 0 5% 0;
+                    .nickname {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        padding: 0 5% 0 0;
+                    }
+                    .user-country {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+                .popular-hero {
+                    .hero-img {
+                        border: 2px solid black;
+                    }
+                    .hero-name {
+                        padding: 3% 0;
+                        text-align-last: left;
+                    }
+                    p {
+                        margin: 3% 0 0 0;
+                    }
+                }
+            }
+            .current-rank {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                position: relative;
+                img {
+                    width: 60%;
+                }
+                .rank-star {
+                    position: absolute;
+                    top: -5px;
+                }
+            }
+        }
+    }
+    .profile-show {
+        .main-show {
+        }
+        .previous-matches {
+            .matсh {
+            }
+        }
+    }
+}

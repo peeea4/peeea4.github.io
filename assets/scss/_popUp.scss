@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+.pop-up {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(51, 51, 51, 0.37);
+}
+.container-pop {
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+    position: relative;
+    width: 800px;
+    min-height: 480px;
+    overflow: hidden;
+    p {
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: .5px;
+        margin: 20px 0 30px;
+    }
+    span {
+        font-size: 12px;
+    }
+    a {
+        color: #333;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 15px 0;
+    }
+    .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all .6s ease-in-out;
+        form {
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            padding:  0 50px;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            .social-container {
+                margin: 20px 0;
+                a {
+                    border: 1px solid #ddd;
+                    border-radius: 50%;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 5px;
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+        }
+        input {
+            background: #eee;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+        }
+    }
+
+    button {
+        cursor: pointer;
+        border-radius: 20px;
+        border: 1px solid rgb(78, 55, 167);
+        background: rgb(78, 55, 167);
+        color: #fff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        &:active {
+            transform: scale(.95);
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    button.ghost {
+        background: transparent;
+        border-color: #fff;
+    }
+
+    .sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+    }
+
+    .sign-up-container {
+        left: 0;
+        width: 50%;
+        z-index: 1;
+        opacity: 0;
+    }
+
+    .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform .6s ease-in-out;
+        z-index: 100;
+        .overlay {
+            h2 {
+                color: white;
+                margin-bottom: 1em;
+            }
+            background: rgb(78, 55, 167);
+            background: linear-gradient(90deg, rgb(92, 47, 134) 0%, rgba(108, 80, 223, 1) 100%) no-repeat 0 0 / cover;
+            color: #fff;
+            position: relative;
+            left: -100%;
+            height: 100%;
+            width: 200%;
+            transform: translateY(0);
+            transition: transform .6s ease-in-out;
+            .overlay-panel {
+                position: absolute;
+                top: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 50%;
+                text-align: center;
+                transform: translateY(0);
+                transition: transform .6s ease-in-out;
+                .cancel {
+                    position: absolute;
+                    right: 5%;
+                    top: 1%;
+                }
+            }
+            .overlay-right {
+                right: 0;
+                transform: translateY(0);
+            }
+            .overlay-left {
+                transform: translateY(-20%);
+            }
+        }
+    }
+}
+/* Move signin to right */
+.container-pop.right-panel-active .sign-in-container {
+    transform: translateY(100%);
+}
+
+/* Move overlay to left */
+.container-pop.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+/* Bring signup over signin */
+.container-pop.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+
+/* Move overlay back to right */
+.container-pop.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+/* Bring back the text to center */
+.container-pop.right-panel-active .overlay-left {
+    transform: translateY(0);
+}
+
+/* Same effect for right */
+.container-pop.right-panel-active .overlay-right {
+    transform: translateY(20%);
+}

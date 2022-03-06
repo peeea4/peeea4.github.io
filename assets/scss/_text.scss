@@ -4,7 +4,7 @@ $font-family: Raleway;
 $font-color: #2B2B2B;
 $titles-font-weight: 700;
 
-$h1-fz: 55px;
+$h1-fz: 60px;
 $h2-fz: 40px;
 $h3-fz: 25px;
 $h4-fz: 22px;
@@ -13,7 +13,7 @@ $s-desc-fz: 16px;
 $m-desc-fz: 20px;
 $l-desc-fz: 22px;
 
-$link-fz: 20px;
+$link-fz: 18px;
 $link-fw: 500;
 
 $s-desc-fw: 300;
@@ -24,8 +24,9 @@ h1 {
     font-size: $h1-fz;
     font-weight: $titles-font-weight;
     color: $font-color;
-    line-height: 60px;
     text-align: right;
+    text-transform: uppercase;
+    line-height: 80px;
 }
 h2 {
     font-family: $font-family;

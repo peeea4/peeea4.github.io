@@ -3,37 +3,100 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./assets/css/reset.css">
 	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous">
 	<title>CYBERTY</title>
 </head>
 
 <body>
+	<div class="pop-up">	
+		<div class="container-pop" id="container-pop">
+			<div class="form-container sign-up-container">
+				<form action="#">
+					<h2>Create Account</h2>
+					<div class="social-container">
+						<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+						<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+					<span>or use your email for registration</span>
+					<input type="text" placeholder="Name" />
+					<input type="email" placeholder="Email" />
+					<input type="password" placeholder="Password" />
+					<button>Sign Up</button>
+				</form>
+			</div>
+			<div class="form-container sign-in-container">
+				<form action="#">
+					<h2>Sign in</h2>
+					<div class="social-container">
+						<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+						<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+					<span>or use your account</span>
+					<input class="emailInp" type="text" placeholder="Email" />
+					<input class="passInp" type="password" placeholder="Password" />
+					<a href="#">Forgot your password?</a>
+					<button class="signInBtn">Sign In</button>
+				</form>
+			</div>
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h2>Welcome Back!</h2>
+						<button class="ghost" id="signIn">Sign In</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<a class="cancel" href="#"><img src="./assets/icons/cancel.png" alt=""></a>
+						<h2>Hello, Friend!</h2>
+						<button class="ghost" id="signUp">Sign Up</button>
+					</div>
+				</div>
+			</div>
+    	</div>
+	</div>
 	<header class="header container" id="header">
 		<nav class="navigation">
-			<img class="logo" src="./assets/images/logo.png" alt="" class="logo">
+			<a href="#header"><img class="logo" src="./assets/images/logo.png" alt="" class="logo"></a>
 			<div class="links">
-				<a class="link" href="#header">Главная</a>
 				<a class="link" href="#tutorial">Как использовать</a>
-				<a class="link" href="">Сравнение</a>
 				<a class="link" href="#faq">FAQ</a>
 				<a class="link" href="#footer">Контакты</a>
+			</div>
+			<div class="sign">
+				<a href="#" class="link signInUp">Войти/Регистрация</a>
+				<a href=""><img src="" alt=""></a>
 			</div>
 		</nav>
 		<div class="header-content">
 			<div class="header-info">
-				<h1> Тренируйся, как <span>PRO</span> <br> Играй, как <span>PRO</span> <br> Будь <span>PRO</span> </h1>
-				<p class="description large">No more over-priced cleaning kits or household
-					products. We clean and restore your shoes safely
-					and efficiently deliverd to your door.</p>
+				<div class="titles">
+					<h1>Будь лучшей версией <span>себя</span></h1>
+				</div>
 				<div class="buttons-container">
 					<button class="btn try">Попробовать</button>
 					<button class="btn example">Туториал</button>
 				</div>
 			</div>
 			<div class="header-example">
+				<div class="morphing-demo">
+					<svg width="600px" height="600px" viewBox="0 0 75 200">
+						<g fill="none" fill-rule="evenodd">
+							<g fill="currentColor" fill-opacity=".15" transform="translate(0 6)">
+								<polygon points="70 0 136.574 48.369 111.145 126.631 28.855 126.631 3.426 48.369"></polygon>
+								<polygon points="70 18 119.455 53.931 100.565 112.069 39.435 112.069 20.545 53.931"></polygon>
+								<polygon points="70 34.86 101.727 57.911 89.609 95.209 50.391 95.209 38.273 57.911"></polygon>
+								<polygon points="70 50.898 84.864 61.697 79.186 79.171 60.814 79.171 55.136 61.697"></polygon>
+							</g>
+							<polygon class="polymorph" stroke-width="1" stroke="currentColor" points="70 54.2140276830243 135.6453425610081 54.69676144905596 89.74589598993593 101.5596574389919 29.455895989935936 131.81159637736008 39.35465743899191 64.58750763270397 "></polygon>
+						</g>
+					</svg>
+				</div>
 			</div>
 		</div>
 	</header>
@@ -67,66 +130,6 @@
 				</div>
 			</div>
 			<button class="btn try">Попробовать</button>
-		</div>
-		<div class="compare" id="compare">
-			<div class="compare-info">
-				<h2>Сравни себя с кумиром</h2>
-			</div>
-			<div class="compare-content">
-				<div class="compare-saved">
-					<div class="card">
-						<div class="compare-points">
-							<p class="description large">Age:</p>
-							<p class="description large">Rating:</p>
-							<p class="description large">Impact:</p>
-							<p class="description large">DPR:</p>
-							<p class="description large">APR:</p>
-							<p class="description large">Kast:</p>
-							<p class="description large">KPR:</p>
-							<p class="description large">Headshots:</p>
-							<p class="description large">Maps Played:</p>
-						</div>
-						<div class="user info">
-							<img
-								src="https://img-cdn.hltv.org/playerbodyshot/FU6cX0sBXlqI-UGYm_92sq.png?ixlib=java-2.1.0&w=400&s=0f5e9fdb4a183bcfb1b1fa7d88b43f08">
-							<h4 class="nick-name">Mathieu "ZywOo" Herbaut</h4>
-							<div class="stat">
-								<p class="description large">1</p>
-								<p class="description large">1</p>
-								<p class="description large">1</p>
-								<p class="description large">1</p>
-								<p class="description large">1</p>
-								<p class="description large">1</p>
-								<p class="description large">1</p>
-								<p class="description large">1</p>
-								<p class="description large">1</p>
-							</div>
-						</div>
-						<div class="server info">
-							<!-- <img src="https://img-cdn.hltv.org/playerbodyshot/FU6cX0sBXlqI-UGYm_92sq.png?ixlib=java-2.1.0&w=400&s=0f5e9fdb4a183bcfb1b1fa7d88b43f08" alt="" class="user-image">
-								<h4 class="nick-name">Mathieu "ZywOo" Herbaut</h4>
-								<div class="stat">
-									<p class="description large">2</p>
-									<p class="description large">2</p>
-									<p class="description large">2</p>
-									<p class="description large">2</p>
-									<p class="description large">2</p>
-									<p class="description large">2</p>
-									<p class="description large">2</p>
-									<p class="description large">2</p>
-									<p class="description large">2</p>
-								</div> -->
-						</div>
-					</div>
-				</div>
-				<div class="compare-add">
-					<div class="compare-inputs">
-						<input class="input star" type="text">
-						<input class="input user" type="text">
-					</div>
-					<button class="btn enter">Сравнить</button>
-				</div>
-			</div>
 		</div>
 		<div class="faq" id="faq">
 			<h2>FAQ</h2>
@@ -163,6 +166,36 @@
 					ex ea commodo consequat.</p>
 			</div>
 		</div>
+		<div class="user-profile" id="user-profile">
+			<div class="profile-info">
+				<img class="medium-img" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/db/dbd074e76e9a3da7e348ce1a7d97af858e64ecf6_full.jpg" alt="">
+				<div class="pofile-description">
+					<div class="personal-data">
+						<div class="name-and-coutry">
+							<h3 class="nickname">мойтиммейтдаун</h3>
+							<img class="user-country" src="./assets/icons/png/092-belarus.png" alt="BY">
+						</div>
+						<div class="popular-hero">
+							<img class="hero-img" src="https://api.opendota.com/apps/dota2/images/dota_react/heroes/drow_ranger.png?" alt="">
+							<h4 class="hero-name">Drow Ranger</h4>
+							<p class="description medium hero-games">Games: <strong>70</strong></p>
+							<p class="description medium hero-win">Win: <strong>38</strong></p>
+							<p class="description medium hero-lose">Lose: <strong>32</strong></p>
+						</div>
+					</div>
+					<div class="current-rank">
+						<img class="rank-star" src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_star_3.png" alt="">
+						<img class="rank" src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_2.png" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="profile-show">
+				<div class="main-show"></div>
+				<div class="previous-matches">
+					<div class="matсh"></div>
+				</div>
+			</div>
+		</div>
 	</main>
 	<footer class="footer" id="footer">
 		<div class="footer-top container">
@@ -179,7 +212,6 @@
 			<div class="footer-links">
 				<a class="link" href=""><span>Главная</span></a>
 				<a class="link" href=""><span>Как использовать</span></a>
-				<a class="link" href=""><span>Сравнение</span></a>
 				<a class="link" href=""><span>FAQ</span></a>
 				<a class="link" href=""><span>Контакты</span></a>
 			</div>
@@ -198,6 +230,10 @@
 		</div>
 	</footer>
 	<script type="module" src="./src/script.js"></script>
+	<script type="module" src="./src/animation.js"></script>
+	<script type="module" src="./src/popUp.js"></script>
+	<script type="module" src="./src/authorization.js"></script>
+	<script src="./anime-master/lib/anime.min.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,55 @@
+.faq {
+	padding-top: 10%;
+	h2 {
+		text-align: center;
+		margin-bottom: 5vh;
+	}
+	padding-bottom: 10%;
+	.show-text {
+		font-family: $font-family;
+		font-size: $m-desc-fz;
+		font-weight: $titles-font-weight;
+		color: $font-color;
+		text-align-last: left;
+		background-color: #eee;
+		cursor: pointer;
+		padding: 18px 10px;
+		margin: 20px 5px;
+		width: 100%;
+		border: none;
+		outline: none;
+		transition: 0.4s;
+		&:after {
+			content: "";
+			background-image: url("../icons/pluse.png");
+			width: 24px;
+			height: 24px;
+			color: #777;
+			font-weight: bold;
+			float: right;
+			margin-left: 5px;
+		}
+		&:hover {
+			transform: scale(1.01);
+			background-color: #ccc;
+		}
+	}
+	.text {
+		font-size: $s-desc-fz;
+		font-weight: $s-desc-fw;
+		overflow: hidden;
+		padding: 0 40px;
+		background-color: white;
+		max-height: 0;
+		transition: max-height 0.2s ease-out;
+	}
+	.active {
+		background-color: #ccc;
+		&:after {
+			content: "";
+			background-image: url("../icons/minus.png");
+			width: 24px;
+			height: 24px;
+		}
+	}
+}

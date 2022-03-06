@@ -7,6 +7,7 @@ let password = "12345678";
 let buttonSignContainer = document.querySelector(".sign");
 let image;
 
+/* after click we create user obj and show profile icon */
 buttonAuthorize.addEventListener("click", () => {
     passwordInput = document.querySelector(".passInp").value;
     emailInput = document.querySelector(".emailInp").value;

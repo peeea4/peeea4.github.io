@@ -27,15 +27,9 @@ btnsShow.forEach(element => {
 	});
 });
 
-let btnsNavigate = Array.from(document.querySelectorAll(".btn"));
-btnsNavigate.forEach(element => {
-	if (element.classList.contains("try")) {
-		element.addEventListener("click", () => {
-			document.location.href = "/index.html#compare"
-		})
-	} else if (element.classList.contains("example")) {
-		element.addEventListener("click", () => {
-			document.location.href = "/index.html#tutorial"
-		})
-	}
+let btnsNavigateExample = Array.from(document.querySelectorAll(".example"));
+btnsNavigateExample.forEach( element => {
+	element.addEventListener("click", () => {
+		document.location.href = "#tutorial"
+	})
 })

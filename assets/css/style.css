@@ -142,7 +142,7 @@ h4 {
 }
 .tutorial .tutorial-items .card .card-img {
   width: 330px;
-  height: 250px;
+  height: 200px;
   background-color: #777;
   margin: 20px;
 }
@@ -151,6 +151,10 @@ h4 {
 }
 .tutorial .tutorial-items .card p {
   text-align: center;
+}
+.tutorial .tutorial-items .card p a {
+  font-size: 25px;
+  color: #4e37a7;
 }
 .tutorial .btn {
   padding: 20px 60px;
@@ -447,65 +451,67 @@ h4 {
 }
 
 .user-profile {
-  padding: 5% 0;
-  display: flex;
+  padding: 2% 0;
+  display: none;
   flex-direction: column;
-  border-top: 1px solid black;
 }
-.user-profile .profile-info {
+.user-profile .profile-header {
   display: flex;
 }
-.user-profile .profile-info .medium-img {
+.user-profile .profile-header .medium-img {
   border: 3px solid black;
   width: 256px;
   height: 256px;
 }
-.user-profile .profile-info .pofile-description {
+.user-profile .profile-header .pofile-description {
   flex: 1 1 auto;
   display: flex;
   justify-content: space-between;
 }
-.user-profile .profile-info .pofile-description .personal-data {
+.user-profile .profile-header .pofile-description .personal-data {
   margin: 0 0 0 5%;
 }
-.user-profile .profile-info .pofile-description .personal-data .name-and-coutry {
+.user-profile .profile-header .pofile-description .personal-data .name-and-country {
   display: flex;
   align-items: center;
   margin: 0 0 5% 0;
 }
-.user-profile .profile-info .pofile-description .personal-data .name-and-coutry .nickname {
+.user-profile .profile-header .pofile-description .personal-data .name-and-country .nickname {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 0 5% 0 0;
 }
-.user-profile .profile-info .pofile-description .personal-data .name-and-coutry .user-country {
+.user-profile .profile-header .pofile-description .personal-data .name-and-country .user-country {
   width: 32px;
   height: 32px;
 }
-.user-profile .profile-info .pofile-description .personal-data .popular-hero .hero-img {
+.user-profile .profile-header .pofile-description .personal-data .popular-hero .hero-img {
   border: 2px solid black;
 }
-.user-profile .profile-info .pofile-description .personal-data .popular-hero .hero-name {
+.user-profile .profile-header .pofile-description .personal-data .popular-hero .hero-name {
   padding: 3% 0;
   -moz-text-align-last: left;
        text-align-last: left;
 }
-.user-profile .profile-info .pofile-description .personal-data .popular-hero p {
+.user-profile .profile-header .pofile-description .personal-data .popular-hero p {
   margin: 3% 0 0 0;
 }
-.user-profile .profile-info .pofile-description .current-rank {
+.user-profile .profile-header .pofile-description .current-rank {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   position: relative;
 }
-.user-profile .profile-info .pofile-description .current-rank img {
+.user-profile .profile-header .pofile-description .current-rank img {
   width: 60%;
 }
-.user-profile .profile-info .pofile-description .current-rank .rank-star {
+.user-profile .profile-header .pofile-description .current-rank .rank-star {
   position: absolute;
-  top: -5px;
+  top: 0px;
+}
+.user-profile .profile-header .pofile-description .current-rank .rank {
+  padding-top: 10px;
 }
 
 .navigation {
@@ -530,6 +536,7 @@ h4 {
   border: 2px solid transparent;
   position: relative;
   transition: 0.4s;
+  background-color: #ffffff;
 }
 .navigation .links .link:after, .navigation .sign .link:after {
   position: absolute;
@@ -550,9 +557,12 @@ h4 {
 }
 .navigation .sign {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 1.5em;
   align-items: center;
+}
+.navigation .sign .exit {
+  display: none;
 }
 
 .header {

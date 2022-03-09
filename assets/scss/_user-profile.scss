@@ -1,9 +1,8 @@
 .user-profile {
-    padding: 5% 0;
-    display: flex;
+    padding: 2% 0;
+    display: none;
     flex-direction: column;
-    border-top: 1px solid black;
-    .profile-info {
+    .profile-header {
         display: flex;
         .medium-img {
             border: 3px solid black;
@@ -16,7 +15,7 @@
             justify-content: space-between;
             .personal-data {
                 margin: 0 0 0 5%;
-                .name-and-coutry {
+                .name-and-country {
                     display: flex;
                     align-items: center;
                     margin: 0 0 5% 0;
@@ -54,7 +53,10 @@
                 }
                 .rank-star {
                     position: absolute;
-                    top: -5px;
+                    top: 0px;
+                }
+                .rank {
+                    padding-top: 10px;
                 }
             }
         }

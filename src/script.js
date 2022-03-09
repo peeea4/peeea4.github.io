@@ -39,7 +39,8 @@
 
 	competitive_rank: null
 	leaderboard_rank: null
-	mmr_estimate: {estimate: 1881}
+	mmr_estimate:
+		estimate: 2058
 	profile:
 	account_id: 252812353
 	avatar: "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/db/dbd074e76e9a3da7e348ce1a7d97af858e64ecf6.jpg"
@@ -54,8 +55,10 @@
 	plus: false
 	profileurl: "https://steamcommunity.com/id/peeea4/"
 	steamid: "76561198213078081"
+
 	rank_tier: 23
 	solo_competitive_rank: null
-	tracked_until: "1648985933"
+	tracked_until: "1648997944"
+
 
 */

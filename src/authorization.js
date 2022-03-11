@@ -4,6 +4,7 @@ let butttonExit = document.querySelector(".exit");
 let butttonImage = document.querySelector(".image");
 let buttonCancel = document.querySelector(".cancel");
 let buttonSignContainer = document.querySelector(".sign");
+let buttonLogo = document.querySelector(".logo");
 
 let containerRank = document.querySelector(".current-rank");
 let containerLinks = document.querySelector(".links");
@@ -23,9 +24,9 @@ buttonAuthorizeIn.addEventListener("click", () => {
         let userId = emailInput;
         getUserMainData(userId);
         closePopUp();
-        setTimeout( () => {
-            showProfileIcon(userMainObj);
-        }, 2000)
+        // setTimeout( () => {
+        //     showProfileIcon(userMainObj);
+        // }, 2000)
         getUserHeroData(userId);
     }
 })
@@ -39,6 +40,7 @@ function getUserMainData(userId) {
     })
     .then(data => {
         createUserMainObj(data);
+		showProfileIcon(data)
     })
 }
 
@@ -77,6 +79,15 @@ butttonImage.addEventListener("click", () => {
     showProfileHeroInfo(userHeroObj);
 })
 
+buttonLogo.addEventListener("click", () => {
+	navigation.style = "display:grid; align-items: center;";
+	containerLinks.style = "display:flex; justify-content: space-around;";
+	headerContent.style.display = "flex";
+	header.style.height = "88vh"
+	main.style.display = "block";
+	userProfile.style.display = "none";
+})
+
 // 252812353
 
 function showProfileMainInfo(userData) {
@@ -98,17 +109,11 @@ function createUserRankImage(userData) {
     let rankStars = userData.rank_tier % 10;
     let firstNumber = Number(String(userData.rank_tier)[0]);
 
-    let imgRankStar = document.createElement("img");
-    imgRankStar.classList.add("rank-star", "userInfo");
+    let imgRankStar = document.querySelector(".rank-star");
     imgRankStar.src = `https://www.opendota.com/assets/images/dota2/rank_icons/rank_star_${rankStars}.png`;
 
-
-    let imgRank = document.createElement("img");
-    imgRank.classList.add("rank", "userInfo");
+	let imgRank = document.querySelector(".rank");
     imgRank.src = `https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_${firstNumber}.png`;
-
-    containerRank.appendChild(imgRank);
-    containerRank.appendChild(imgRankStar);
 }
 
 function getUserHeroData(userId) {

@@ -1,28 +1,28 @@
 .header {
-	padding-top: 12vh;
-	height: 88vh;
+	padding-top: 14vh;
+	height: 86vh;
 	.header-content {
-        margin-top: 5%;
+		margin-top: 5%;
 		display: flex;
 		.header-info {
-            width: 45%;
-            .titles {
-                margin-top: 12%;
-                h1 {
-                    span {
-                        font-size: 70px;
-                        line-height: 60px;
-                        background: linear-gradient(90deg, rgba(113, 47, 134, 1) 0%, rgba(108, 80, 223, 1) 100%);
-                        color: transparent;
+			width: 45%;
+			.titles {
+				margin-top: 12%;
+				h1 {
+					span {
+						font-size: 70px;
+						line-height: 60px;
+						background: linear-gradient(90deg, rgba(113, 47, 134, 1) 0%, rgba(108, 80, 223, 1) 100%);
+						color: transparent;
 						background-clip: text;
-                        -webkit-background-clip: text;
-                        text-transform: uppercase;
-                    }
-                }
-            }
-            .buttons-container {
-                margin-top: 5%;
-            }
+						-webkit-background-clip: text;
+						text-transform: uppercase;
+					}
+				}
+			}
+			.buttons-container {
+				margin-top: 5%;
+			}
 		}
 	}
 }

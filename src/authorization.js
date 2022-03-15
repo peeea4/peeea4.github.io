@@ -99,6 +99,9 @@ buttonLogo.addEventListener("click", () => {
 	userProfile.style.display = "none";
 })
 
+
+
+
 // 252812353
 
 function showProfileMainInfo(userData) {

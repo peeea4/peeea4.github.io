@@ -13,6 +13,7 @@ let navigation = document.querySelector(".navigation");
 let password = "1";
 let userMainObj;
 let userHeroObj;
+let serverHeroesObj;
 
 // По нажатию проверяем пароль и вызываем функцию, которые отправляет запрос на получение данных по ID указанному в Input(email)
 
@@ -28,6 +29,7 @@ buttonAuthorizeIn.addEventListener("click", () => {
         //     showProfileIcon(userMainObj);
         // }, 2000)
         getUserHeroData(userId);
+        getServerHeroesName()
     }
 })
 
@@ -43,7 +45,16 @@ function getUserMainData(userId) {
 		showProfileIcon(data)
     })
 }
-
+function getServerHeroesName() {
+    fetch("https://api.opendota.com/api/heroes")
+    .then(response => {
+    	return response.json()
+    })
+    .then(data => {
+    	serverHeroesObj = data;
+        console.log(serverHeroesObj);
+    })
+}
 // Создание глобального объекта с данными пользователя
 
 function createUserMainObj(userData) {
@@ -124,7 +135,6 @@ function getUserHeroData(userId) {
     .then(data => {
         createUserHeroObj(data);
     })
-    
 }
 
 function createUserHeroObj(userHeroData) {
@@ -132,15 +142,34 @@ function createUserHeroObj(userHeroData) {
 }
 
 function showProfileHeroInfo(userHeroData) {
+    let popularHeroName = 'Drow Ranger';
+    console.log(userHeroData);
+    userInfoList.forEach( (paragraph) => {
+        
+        if ( paragraph.classList.contains("hero-wl") ) {
 
-    userInfoList.forEach( (element) => {
-        if ( element.classList.contains("hero-name") ) {
-            element.innerHTML = `<p>Games: ${userHeroData[0].games}</p>
+            paragraph.innerHTML = `<p>Games: ${userHeroData[0].games}</p>
             <p>Win: ${userHeroData[0].win}</p>
             <p>Lose: ${userHeroData[0].games - userHeroData[0].win}</p>`
-    
-        } else if ( element.classList.contains("hero-wl") ) {
-    
+
+        } else if ( paragraph.classList.contains("hero-name") ) {
+
+            serverHeroesObj.forEach(element => {
+                console.log(element.id, element.localized_name, userHeroData[0].hero_id);
+                if(element.id == userHeroData[0].hero_id)
+                {
+                    // popularHeroName = element.localized_name;
+                    // console.log(popularHeroName, element.localized_name);
+                    paragraph.innerHTML = `<p>${element.localized_name}</p>`
+                }
+            });
+            
+        } 
+        else if ( paragraph.classList.contains("hero-img") ) {
+            // console.log(popularHeroName);
+            let heroName = popularHeroName.replace(/\s/g, '_')
+            console.log(heroName);
+            paragraph.src = `https://api.opendota.com/apps/dota2/images/dota_react/heroes/${heroName}.png?`
         }
     })
 

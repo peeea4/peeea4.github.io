@@ -12,6 +12,7 @@
 	.links, .sign {
 		display: flex;
 		align-items: center;
+		justify-content: space-around;
 		gap: 1.5em;
 		.link {
 			padding: 10px 0;
@@ -26,7 +27,7 @@
 				width: 0;
 				left: 50%;
 				bottom: 0;
-				height: 1px;
+				height: 2px;
 				background: rgb(78, 55, 167);
 			}
 			&:hover {

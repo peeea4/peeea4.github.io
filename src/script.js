@@ -1,4 +1,4 @@
-// fetch("https://api.opendota.com/api/players/252812353/heroes")
+// fetch("https://api.opendota.com/api/heroes")
 // .then(response => {
 // 	return response.json()
 // })

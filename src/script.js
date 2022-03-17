@@ -1,10 +1,30 @@
-// fetch("https://api.opendota.com/api/heroes")
+// fetch("https://api.opendota.com/api/players/252812353/matches?limit=10")
 // .then(response => {
 // 	return response.json()
 // })
 // .then(data => {
 // 	console.log(data);
 // })
+
+/*
+	{
+		assists: 6
+		deaths: 4
+		duration: 2408
+		game_mode: 22
+		hero_id: 99
+		kills: 3
+		leaver_status: 0
+		lobby_type: 0
+		match_id: 6462384932
+		party_size: 2
+		player_slot: 4
+		radiant_win: false
+		skill: null
+		start_time: 1646519019
+		version: 21
+	}
+*/
 
 /*	
 191281576				info about most popular hero

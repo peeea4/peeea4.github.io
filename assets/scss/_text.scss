@@ -6,8 +6,9 @@ $titles-font-weight: 700;
 
 $h1-fz: 60px;
 $h2-fz: 40px;
-$h3-fz: 25px;
+$h3-fz: 28px;
 $h4-fz: 22px;
+$h5-fz: 18px;
 
 $s-desc-fz: 16px;
 $m-desc-fz: 20px;
@@ -16,7 +17,7 @@ $l-desc-fz: 22px;
 $link-fz: 18px;
 $link-fw: 500;
 
-$s-desc-fw: 300;
+$s-desc-fw: 400;
 $l-desc-fw: 400;
 
 h1 {
@@ -39,14 +40,19 @@ h3 {
     font-size: $h3-fz;
     font-weight: $titles-font-weight;
     color: $font-color;
-    text-align: center;
+    text-align: left;
 }
 h4 {
     font-family: $font-family;
     font-size: $h4-fz;
     font-weight: $titles-font-weight;
     color: $font-color;
-    text-align: center;
+}
+h5 {
+    font-family: $font-family;
+    font-size: $h5-fz;
+    font-weight: $titles-font-weight;
+    color: $font-color;
 }
 .link {
     font-family: $font-family;

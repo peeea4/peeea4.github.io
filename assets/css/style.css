@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 h1 {
@@ -19,10 +20,10 @@ h2 {
 
 h3 {
   font-family: Raleway;
-  font-size: 25px;
+  font-size: 28px;
   font-weight: 700;
   color: #2B2B2B;
-  text-align: center;
+  text-align: left;
 }
 
 h4 {
@@ -30,7 +31,13 @@ h4 {
   font-size: 22px;
   font-weight: 700;
   color: #2B2B2B;
-  text-align: center;
+}
+
+h5 {
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2B2B2B;
 }
 
 .link {
@@ -62,7 +69,7 @@ h4 {
 
 .small {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .medium {
@@ -201,7 +208,7 @@ h4 {
 }
 .faq .text {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   overflow: hidden;
   padding: 0 40px;
   background-color: white;
@@ -220,7 +227,6 @@ h4 {
 
 .footer {
   border-top: 2px solid black;
-  height: 20%;
   padding: 2em 0 0.5em 0;
 }
 .footer .footer-top {
@@ -452,17 +458,11 @@ h4 {
 }
 
 .user-profile {
-  padding: 2% 0;
   display: none;
   flex-direction: column;
 }
 .user-profile .profile-header {
   display: flex;
-}
-.user-profile .profile-header .medium-img {
-  border: 3px solid black;
-  width: 256px;
-  height: 256px;
 }
 .user-profile .profile-header .pofile-description {
   flex: 1 1 auto;
@@ -470,22 +470,31 @@ h4 {
   justify-content: space-between;
 }
 .user-profile .profile-header .pofile-description .personal-data {
-  margin: 0 0 0 5%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 .user-profile .profile-header .pofile-description .personal-data .name-and-country {
   display: flex;
-  align-items: center;
-  margin: 0 0 5% 0;
+  flex-direction: column-reverse;
 }
 .user-profile .profile-header .pofile-description .personal-data .name-and-country .nickname {
+  margin: 5% 0 0 0;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  padding: 0 5% 0 0;
+  align-items: flex-start;
 }
 .user-profile .profile-header .pofile-description .personal-data .name-and-country .user-country {
   width: 32px;
   height: 32px;
+}
+.user-profile .profile-header .pofile-description .personal-data .name-and-country .medium-img {
+  border: 3px solid black;
+  width: 220px;
+  height: 220px;
+}
+.user-profile .profile-header .pofile-description .personal-data .popular-hero {
+  margin: 0 0 0 15%;
 }
 .user-profile .profile-header .pofile-description .personal-data .popular-hero .hero-img {
   border: 2px solid black;
@@ -514,6 +523,39 @@ h4 {
 .user-profile .profile-header .pofile-description .current-rank .rank {
   padding-top: 10px;
 }
+.user-profile .profile-show {
+  display: flex;
+  margin: 5% 0 5% 0;
+}
+.user-profile .profile-show .main-show {
+  width: 80%;
+}
+.user-profile .profile-show .previous-matches {
+  width: 20%;
+}
+.user-profile .profile-show .previous-matches .matсh {
+  display: flex;
+  margin: 7% 0 0 0;
+  transition: all 0.2s;
+}
+.user-profile .profile-show .previous-matches .matсh .match-hero .hero-img {
+  border: 1px solid transparent;
+  width: 92px;
+  height: 54px;
+}
+.user-profile .profile-show .previous-matches .matсh .match-hero .hero-name {
+  max-width: 92px;
+}
+.user-profile .profile-show .previous-matches .matсh .match-stat {
+  margin: 0 0 0 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user-profile .profile-show .previous-matches .matсh:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
 
 .navigation {
   display: grid;
@@ -521,7 +563,7 @@ h4 {
   align-items: center;
   position: fixed;
   top: 0;
-  height: 12vh;
+  height: 10vh;
   width: 1200px;
   padding-top: 1em;
   background-color: #ffffff;
@@ -606,6 +648,14 @@ h4 {
 }
 .header .header-content .header-info .buttons-container {
   margin-top: 5%;
+}
+
+.red {
+  color: #ff000d;
+}
+
+.green {
+  color: #36e436;
 }
 
 html {

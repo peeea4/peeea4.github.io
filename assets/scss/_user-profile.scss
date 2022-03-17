@@ -1,36 +1,37 @@
 .user-profile {
-    padding: 2% 0;
     display: none;
     flex-direction: column;
     .profile-header {
         display: flex;
-        .medium-img {
-            border: 3px solid black;
-            width: 256px;
-            height: 256px;
-        }
         .pofile-description {
             flex: 1 1 auto;
             display: flex;
             justify-content: space-between;
             .personal-data {
-                margin: 0 0 0 5%;
+                display: grid;
+                grid-template-rows: 1fr;
+                grid-template-columns: 1fr 1fr;
                 .name-and-country {
                     display: flex;
-                    align-items: center;
-                    margin: 0 0 5% 0;
+                    flex-direction: column-reverse;
                     .nickname {
+                        margin: 5% 0 0 0;
                         display: flex;
                         justify-content: flex-start;
-                        align-items: center;
-                        padding: 0 5% 0 0;
+                        align-items: flex-start;
                     }
                     .user-country {
                         width: 32px;
                         height: 32px;
                     }
+                    .medium-img {
+                        border: 3px solid black;
+                        width: 220px;
+                        height: 220px;
+                    }
                 }
                 .popular-hero {
+                    margin: 0 0 0 15%;
                     .hero-img {
                         border: 2px solid black;
                     }
@@ -61,12 +62,43 @@
             }
         }
     }
-    // .profile-show {
-    //     .main-show {
-    //     }
-    //     .previous-matches {
-    //         .matсh {
-    //         }
-    //     }
-    // }
+    .profile-show {
+        display: flex;
+        margin: 5% 0 5% 0;
+        .main-show {
+            width: 80%;
+            h2 {
+                
+            }
+        }
+        .previous-matches {
+            width: 20%;
+            .matсh {
+                display: flex;
+                margin: 7% 0 0 0;
+                transition: all 0.2s;
+                .match-hero {
+                    .hero-img {
+                        border: 1px solid transparent;
+                        width: 92px;
+                        height: 54px;
+                    }
+                    .hero-name {
+                        max-width: 92px;
+                    }
+                }
+                .match-stat {
+                    margin: 0 0 0 7%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.03);
+                }
+            }
+        }
+    }
+
 }

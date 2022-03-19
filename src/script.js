@@ -82,3 +82,65 @@
 
 
 */
+
+/*
+{
+	assists: 6
+	deaths: 4
+	duration: 2408
+	game_mode: 22
+	hero_id: 99
+	kills: 3
+	leaver_status: 0
+	lobby_type: 0
+	match_id: 6462384932
+	party_size: 2
+	player_slot: 4
+	radiant_win: false
+	skill: null
+	start_time: 1646519019
+	version: 21
+}
+*/
+
+/*
+barracks_status_dire: 63
+barracks_status_radiant: 3
+chat: null
+cluster: 191
+cosmetics: null
+dire_score: 73
+dire_team_id: null
+draft_timings: null
+duration: 2452
+engine: 1
+first_blood_time: 10
+game_mode: 22
+human_players: 10
+leagueid: 0
+lobby_type: 0
+match_id: 6393970179
+match_seq_num: 5344258761
+negative_votes: 0
+objectives: null
+patch: 49
+picks_bans: (17) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+players: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+positive_votes: 0
+radiant_gold_adv: null
+radiant_score: 25
+radiant_team_id: null
+radiant_win: false
+radiant_xp_adv: null
+region: 9
+replay_salt: 2058355191
+replay_url: "http://replay191.valve.net/570/6393970179_2058355191.dem.bz2"
+series_id: 0
+series_type: 0
+skill: null
+start_time: 1642964666
+teamfights: null
+tower_status_dire: 1974
+tower_status_radiant: 4
+version: null
+*/

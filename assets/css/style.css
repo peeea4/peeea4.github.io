@@ -530,31 +530,30 @@ h5 {
 .user-profile .profile-show .main-show {
   width: 80%;
 }
-.user-profile .profile-show .previous-matches {
-  width: 20%;
-}
-.user-profile .profile-show .previous-matches .matсh {
+.user-profile .profile-show .main-show .previous-matches .matсh {
   display: flex;
-  margin: 7% 0 0 0;
+  margin: 1% 0 0 0;
   transition: all 0.2s;
 }
-.user-profile .profile-show .previous-matches .matсh .match-hero .hero-img {
-  border: 1px solid transparent;
+.user-profile .profile-show .main-show .previous-matches .matсh .match-hero .hero-img {
   width: 92px;
   height: 54px;
 }
-.user-profile .profile-show .previous-matches .matсh .match-hero .hero-name {
-  max-width: 92px;
-}
-.user-profile .profile-show .previous-matches .matсh .match-stat {
-  margin: 0 0 0 7%;
+.user-profile .profile-show .main-show .previous-matches .matсh .hero-kda {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
-.user-profile .profile-show .previous-matches .matсh:hover {
+.user-profile .profile-show .main-show .previous-matches .matсh .radiant-win {
+  display: flex;
+  align-items: center;
+}
+.user-profile .profile-show .main-show .previous-matches .matсh:hover {
   cursor: pointer;
   transform: scale(1.03);
+}
+.user-profile .profile-show .top-heroes {
+  width: 20%;
 }
 
 .navigation {

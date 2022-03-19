@@ -13,6 +13,7 @@ let userMainObj;
 let userHeroObj;
 let userMatchesObj;
 let serverHeroesObj;
+let userMatchesInfo = [];
 
 // По нажатию проверяем пароль и вызываем функцию, которые отправляет запрос на получение данных по ID указанному в Input(email)
 buttonAuthorizeIn.addEventListener("click", () => {
@@ -77,6 +78,7 @@ function getUserMatchesData(userId) {
         return response.json()
     })
     .then(data => {
+        console.log(data);
         createUserMatchesObj(data)
     })
 }
@@ -126,6 +128,7 @@ function showProfileMainInfo() {
     showTopHero(userHeroObj);
     showCurRank(userMainObj);
     showMatches(userMatchesObj)
+    
 } 
 
 function showTopHero(userHeroData) {
@@ -147,7 +150,6 @@ function showTopHero(userHeroData) {
             <p>Lose: ${userHeroData[0].games - userHeroData[0].win}</p>
         </div>
     `;
-    console.log(popularHeroName, heroName);
 }
 
 // Функция получает номер ранга и создаёт соответствующую ему картинку
@@ -155,8 +157,10 @@ function showCurRank(userData) {
     let rankStars = userData.rank_tier % 10;
     let firstNumber = Number(String(userData.rank_tier)[0]);
     let containerRank = document.querySelector(".current-rank");
-    containerRank.innerHTML = `<img class="user-info rank-star" src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_star_${rankStars}.png" alt="">
-    <img class="user-info rank" src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_${firstNumber}.png" alt="">`
+    containerRank.innerHTML = `
+    <img class="user-info rank-star" src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_star_${rankStars}.png" alt="">
+    <img class="user-info rank" src="https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_${firstNumber}.png" alt="">
+    `;
 }
 
 function showMainInfo(userData) {
@@ -169,32 +173,71 @@ function showMatches(matchesData) {
     let matchesContainer = document.querySelector(".previous-matches");
     matchesContainer.innerHTML = "";
     matchesData.forEach( (element) => {
-        let matchHeroName = "";
-        serverHeroesObj.forEach(item => {
-            if (item.id == element.hero_id)
-            {
-                matchHeroName = item.localized_name;
+        getMatchById(element.match_id)
+    });
+    setTimeout( () => {
+        console.log(userMatchesInfo[0].radiant_score);
+        for (let index = 0; index < matchesData.length; index++) {
+            let matchHeroName = "";
+            serverHeroesObj.forEach(item => {
+                if (item.id == matchesData[index].hero_id)
+                {
+                    matchHeroName = item.localized_name;
+                }
+            });
+    
+            let radiantWin;
+            if (matchesData[index].radiant_win) {
+                radiantWin = '<p class="description small green">Победа Сил Света</p>';
+            } else {
+                radiantWin = '<p class="description small red">Победа Сил Тьмы</p>';
             }
-        });
-        let radiantWin;
-        if (element.radiant_win) {
-            radiantWin = '<p class="description small green">Победа Сил Света</p>';
-        } else {
-            radiantWin = '<p class="description small red">Победа Сил Тьмы</p>';
+    
+            let matchHeroNameImg = matchHeroName.replace(/\s/g, '_').toLowerCase();
+            let matchScore;
+
+            userMatchesInfo.forEach( (element) => {
+                if (matchesData[index].match_id == element.match_id) {
+                    matchScore = `<p class="description small red">${element.dire_score}</p> - <p class="description small green">${element.radiant_score}</p>`
+                }
+            })
+            
+            matchesContainer.innerHTML += `
+                <div class="matсh">
+                    <div class="match-hero">
+                        <img class="hero-img" src="https://api.opendota.com/apps/dota2/images/dota_react/heroes/${matchHeroNameImg}.png?" alt="">
+                        <h5 class="hero-name">${matchHeroName}</h5>
+                    </div>
+                    <div class="hero-kda">    
+                        <p class="description small">K D A</p>
+                        <p class="description small">${matchesData[index].kills} ${matchesData[index].deaths} ${matchesData[index].assists}</p>
+                    </div>
+                    <div class="radiant-win">
+                        ${radiantWin}
+                    </div>
+                    <div class="match-duration">
+                    <p class="description small">${Math.round(matchesData[index].duration/60)} min</p>
+                    </div>
+                    <div class="match-score">
+                    <p class="description small">${matchScore}</p>
+                    </div>
+                </div>
+            `;
         }
-        let matchHeroNameImg = matchHeroName.replace(/\s/g, '_').toLowerCase();
-        matchesContainer.innerHTML += `
-            <div class="matсh">
-                <div class="match-hero">
-                    <img class="hero-img" src="https://api.opendota.com/apps/dota2/images/dota_react/heroes/${matchHeroNameImg}.png?" alt="">
-                    <h5 class="hero-name">${matchHeroName}</h5>
-                </div>
-                <div class="match-stat">    
-                    <p class="description small">K D A</p>
-                    <p class="description small">${element.kills} ${element.deaths} ${element.assists}</p>
-                    ${radiantWin}
-                </div>
-            </div>
-        `;
-    })
+    }, 2000)
+}
+
+function getMatchById(matchId) {
+        fetch(`https://api.opendota.com/api/matches/${matchId}`)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            createUserMatchesInfo(data);
+        })
+}
+
+function createUserMatchesInfo(userMatchesFull) {
+    userMatchesInfo.push(userMatchesFull);
+    console.log(userMatchesInfo, userMatchesFull);
 }

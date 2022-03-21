@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+.container-for-cancel {
+    position: relative;
+    .cancel {
+        z-index: 10;
+        position: absolute;
+        right: -25px;
+        top: -25px;
+        margin: 0;
+    }
+}
 .pop-up {
     display: none;
     flex-direction: column;
@@ -9,6 +19,7 @@
     height: 100%;
     z-index: 2;
     background-color: rgba(51, 51, 51, 0.37);
+    
 }
 .container-pop {
     font-family: 'Montserrat', sans-serif;
@@ -145,11 +156,7 @@
                 text-align: center;
                 transform: translateY(0);
                 transition: transform .6s ease-in-out;
-                .cancel {
-                    position: absolute;
-                    right: 5%;
-                    top: 1%;
-                }
+                
             }
             .overlay-right {
                 right: 0;

@@ -69,23 +69,42 @@
             width: 80%;
             .previous-matches {
                 .matсh {
-                    display: flex;
-                    margin: 1% 0 0 0;
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
                     transition: all 0.2s;
+                    margin: 2% 0 0 0;
                     .match-hero {
                         .hero-img {
-                            width: 92px;
-                            height: 54px;
+                            width: 128px;
+                            height: 72px;
                         }
                     }
                     .hero-kda {
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
+                        align-items: flex-start;
                     }
                     .radiant-win {
                         display: flex;
                         align-items: center;
+                        justify-content: flex-start;
+                    }
+                    .match-duration {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                    }
+                    .match-score {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                    }
+                    .match-time-start {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
                     }
                     &:hover {
                         cursor: pointer;
@@ -100,3 +119,8 @@
     }
 
 }
+
+// M E D I A  Q U E R I E S
+// @media screen {
+    
+// }

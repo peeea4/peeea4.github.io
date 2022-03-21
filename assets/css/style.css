@@ -131,8 +131,10 @@ h5 {
   margin-bottom: 5vh;
 }
 .tutorial .tutorial-items {
-  display: flex;
+  display: grid;
   margin-bottom: 3%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
 }
 .tutorial .tutorial-items .card {
   display: flex;
@@ -263,6 +265,17 @@ h5 {
 }
 .footer .footer-bottom {
   text-align: center;
+}
+
+.container-for-cancel {
+  position: relative;
+}
+.container-for-cancel .cancel {
+  z-index: 10;
+  position: absolute;
+  right: -25px;
+  top: -25px;
+  margin: 0;
 }
 
 .pop-up {
@@ -412,11 +425,6 @@ h5 {
   transform: translateY(0);
   transition: transform 0.6s ease-in-out;
 }
-.container-pop .overlay-container .overlay .overlay-panel .cancel {
-  position: absolute;
-  right: 5%;
-  top: 1%;
-}
 .container-pop .overlay-container .overlay .overlay-right {
   right: 0;
   transform: translateY(0);
@@ -531,22 +539,41 @@ h5 {
   width: 80%;
 }
 .user-profile .profile-show .main-show .previous-matches .matсh {
-  display: flex;
-  margin: 1% 0 0 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
   transition: all 0.2s;
+  margin: 2% 0 0 0;
 }
 .user-profile .profile-show .main-show .previous-matches .matсh .match-hero .hero-img {
-  width: 92px;
-  height: 54px;
+  width: 128px;
+  height: 72px;
 }
 .user-profile .profile-show .main-show .previous-matches .matсh .hero-kda {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 }
 .user-profile .profile-show .main-show .previous-matches .matсh .radiant-win {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+}
+.user-profile .profile-show .main-show .previous-matches .matсh .match-duration {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.user-profile .profile-show .main-show .previous-matches .matсh .match-score {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.user-profile .profile-show .main-show .previous-matches .matсh .match-time-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 .user-profile .profile-show .main-show .previous-matches .matсh:hover {
   cursor: pointer;

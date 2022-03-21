@@ -9,8 +9,10 @@
 		}
 	}
 	.tutorial-items {
-		display: flex;
+		display: grid;
 		margin-bottom: 3%;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 1fr;
 		.card {
 			display: flex;
 			flex-direction: column;

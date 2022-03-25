@@ -79,7 +79,7 @@ h5 {
 
 .btn {
   flex: 1 1 auto;
-  margin: 2px;
+  margin: 5px;
   padding: 20px;
   border: 0px;
   outline: 2px solid black;
@@ -536,9 +536,10 @@ h5 {
   margin: 5% 0 5% 0;
 }
 .user-profile .profile-show .main-show {
-  width: 80%;
+  width: 70%;
 }
 .user-profile .profile-show .main-show .previous-matches .matсh {
+  opacity: 0;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
@@ -554,6 +555,7 @@ h5 {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  padding: 0 0 0 5%;
 }
 .user-profile .profile-show .main-show .previous-matches .matсh .radiant-win {
   display: flex;
@@ -579,10 +581,57 @@ h5 {
   cursor: pointer;
   transform: scale(1.03);
 }
-.user-profile .profile-show .top-heroes {
-  width: 20%;
+.user-profile .profile-show .main-show .previous-matches .matсh-show {
+  -webkit-animation: showMatch 1s linear forwards;
+          animation: showMatch 1s linear forwards;
 }
-
+@-webkit-keyframes showMatch {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes showMatch {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.user-profile .profile-show .profile-aside {
+  padding: 0 0 0 5%;
+  width: 30%;
+}
+.user-profile .profile-show .profile-aside .general-stat .top-friends {
+  margin: 5% 0 0 0;
+}
+.user-profile .profile-show .profile-aside .general-stat .top-friends .friend {
+  margin: 1.5em 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.user-profile .profile-show .profile-aside .general-stat .top-friends .friend .friend-title {
+  display: flex;
+  align-items: center;
+}
+.user-profile .profile-show .profile-aside .general-stat .top-friends .friend .friend-title img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+.user-profile .profile-show .profile-aside .general-stat .top-friends .friend .friend-title .friend-name {
+  margin: 0 0 0 1em;
+}
+.user-profile .profile-show .profile-aside .general-stat .top-friends .friend .friend-main {
+  margin: 1em 0 0 0;
+  display: flex;
+}
+.user-profile .profile-show .profile-aside .general-stat .top-friends .friend .friend-main .friend-games {
+  margin: 0 1em 0 0;
+}
 .navigation {
   display: grid;
   grid-template-columns: auto 50% 20%;

@@ -1,11 +1,33 @@
-// fetch("https://api.opendota.com/api/players/252812353/matches?limit=10")
+// fetch("https://api.opendota.com/api/players/252812353/peers")
 // .then(response => {
 // 	return response.json()
 // })
 // .then(data => {
 // 	console.log(data);
 // })
+/*
+	account_id: 191281576
+	against_games: 0
+	against_win: 0
+	avatar: "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/60/60445ed8e5d02a5ea83d052e43ae30a6f34a716e.jpg"
+	avatarfull: "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/60/60445ed8e5d02a5ea83d052e43ae30a6f34a716e_full.jpg"
+	games: 66
+	is_contributor: false
+	last_login: null
+	last_played: 1624294711
+	name: null
+	personaname: "baby"
+	win: 28
+	with_games: 66
+	with_gpm_sum: 21234
+	with_win: 28
+	with_xpm_sum: 26381
+*/
 
+
+/*
+https://api.opendota.com/api/players/252812353/counts
+*/
 /*
 	{
 		assists: 6

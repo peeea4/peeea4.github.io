@@ -66,9 +66,10 @@
         display: flex;
         margin: 5% 0 5% 0;
         .main-show {
-            width: 80%;
+            width: 70%;
             .previous-matches {
                 .matсh {
+                    opacity: 0;
                     display: grid;
                     grid-template-rows: 1fr;
                     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
@@ -85,6 +86,7 @@
                         flex-direction: column;
                         justify-content: center;
                         align-items: flex-start;
+                        padding: 0 0 0 5%;
                     }
                     .radiant-win {
                         display: flex;
@@ -111,10 +113,53 @@
                         transform: scale(1.03);
                     }
                 }
+                .matсh-show {
+                    animation: showMatch 1s linear forwards;
+                }
+                @keyframes showMatch {
+                    0% {
+                      opacity: 0;
+                    }
+                    100% {
+                      opacity: 1;
+                    }
+                  }
             }
         }
-        .top-heroes {
-            width: 20%;
+        .profile-aside {
+            padding: 0 0 0 5%;
+            width: 30%;
+            .general-stat {
+                .top-friends {
+                    margin: 5% 0 0 0;
+                    .friend {
+                        margin: 1.5em 0 0 0;
+                        display: flex;
+                        flex-direction: column;
+                        .friend-title {
+                            display: flex;
+                            align-items: center;
+                            img {
+                                width: 50px;
+                                height: 50px;
+                                border: 1px solid black;
+                            }
+                            .friend-name {
+                                margin: 0 0 0  1em;
+                            }
+                        }
+                        .friend-main {
+                            margin: 1em 0 0 0;
+                            display: flex;
+                            .friend-games {
+                                margin: 0 1em 0 0;
+                            }
+                            .friend-win {
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

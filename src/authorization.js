@@ -9,6 +9,8 @@ let userHeroObj;
 let userMatchesObj;
 let userMatchesInfo = [];
 let serverHeroesObj;
+let userFriendsObj;
+let userID
 
 // По нажатию проверяем пароль и вызываем функцию, которые отправляет запрос на получение данных по ID указанному в Input(email)
 buttonAuthorizeIn.addEventListener("click", () => {
@@ -17,12 +19,13 @@ buttonAuthorizeIn.addEventListener("click", () => {
     let emailInput = document.querySelector(".emailInp").value;
     
     if(passwordInput == password) {
-        let userId = emailInput;
-        getUserMainData(userId);
+        userID = emailInput;
+        getUserMainData(userID);
         closePopUp();
-        getUserHeroData(userId);
-        getUserMatchesData(userId)
+        getUserHeroData(userID);
+        getUserMatchesData(userID)
         getServerHeroesName();
+        getTopFriends(userID);
     }
 })
 
@@ -81,6 +84,22 @@ function createUserMatchesObj(userMatchesData) {
     userMatchesObj = userMatchesData;
 }
 
+function getTopFriends(userId) {
+    fetch(`https://api.opendota.com/api/players/${userId}/peers`)
+    .then(response => {
+        return response.json()
+    })
+    .then(data => {
+
+        console.log(data);
+        createUserFriendsObj(data);
+    })
+}
+
+function createUserFriendsObj(userFriendsData) {
+    userFriendsObj = userFriendsData;
+}
+
 // Закрытие окна авторизации 
 function closePopUp() {
     let buttonCancel = document.querySelector(".cancel");
@@ -125,7 +144,8 @@ function showProfileMainInfo() {
     showMainInfo(userMainObj);
     showTopHero(userHeroObj);
     showCurRank(userMainObj);
-    getAllMatches(userMatchesObj)
+    getAllMatches(userMatchesObj);
+    showTopFriend(userFriendsObj);
 } 
 
 function showTopHero(userHeroData) {
@@ -179,23 +199,33 @@ function showMatches(matchesData) {
         });
 
         let radiantWin;
-        if (matchesData[index].radiant_win) {
-            radiantWin = '<p class="description small green">Победа Сил Света</p>';
-        } else {
-            radiantWin = '<p class="description small red">Победа Сил Тьмы</p>';
-        }
-
         let matchHeroNameImg = matchHeroName.replace(/\s/g, '_').toLowerCase();
-
         let matchScore;
         let dateStart;
+        console.log(userMatchesInfo);
         userMatchesInfo.forEach( (element) => {
             if (matchesData[index].match_id == element.match_id) {
                 matchScore = `<p class="description small red">${element.dire_score}</p> - <p class="description small green">${element.radiant_score}</p>`;
                 dateStart = new Date(element.start_time * 1000)
-
             }
-        })
+            // if (element.players[0].account_id == userID || item.win == 1) {
+            //     radiantWin = '<p class="description small green">Победа</p>';
+            // } else {
+            //     radiantWin = '<p class="description small red">Поражение</p>';
+            // }
+            console.log(element.players);
+            element.players.forEach( (player) => {
+                console.log();
+                if (player.personaname == userMainObj.personaname) {
+                    if (player.win) {
+                        radiantWin = '<p class="description small green">Победа</p>';
+                    } else {
+                        radiantWin = '<p class="description small red">Поражение</p>';
+                    }
+                }
+            })
+
+        });
         matchesContainer.innerHTML += `
             <div class="matсh">
                 <div class="match-hero">
@@ -221,12 +251,18 @@ function showMatches(matchesData) {
             </div>
         `;
     }
+    let match = Array.from(document.querySelectorAll(".matсh"));
+    match.forEach( (elem,indexForTime) => {
+        setTimeout( () => {
+            elem.classList.add("matсh-show")
+        }, indexForTime*300)
+    });
 
 }
 
 function getAllMatches(matchesData) {    
     matchesData.forEach( (element) => {
-        getMatchById(element.match_id)
+        getMatchById(element.match_id);
     });
 }
 
@@ -237,9 +273,34 @@ function getMatchById(matchId) {
     })
     .then(data => {
         userMatchesInfo.push(data)
+        console.log(data);
         if (userMatchesInfo.length == 10) {
-            console.log("great!");
-            showMatches(userMatchesObj)
+            
+            showMatches(userMatchesObj);
         }
     })
+}
+
+function showTopFriend(userFriendsData) {
+    let friendsContainer = document.querySelector(".top-friends");
+    for (let index = 0; index < 5; index++) {
+        friendsContainer.innerHTML += `
+        <div class="friend">
+            <div class="friend-title">
+                <img src="${userFriendsData[index].avatarfull}" alt="">
+                <p class="friend-name description large">${userFriendsData[index].personaname}</p>
+            </div>
+            <div class="friend-main">
+                <div class="friend-games">
+                    <p class="description small">Всего</p>
+                    <p class="description small">${userFriendsData[index].with_games}</p>
+                </div>
+                <div class="friend-win">
+                    <p class="description small">Побед</p>
+                    <p class="description small green">${userFriendsData[index].with_win}</p>
+                </div>
+            </div>
+		</div>
+        `;
+    }
 }

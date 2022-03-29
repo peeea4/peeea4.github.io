@@ -1,4 +1,4 @@
-// fetch("https://api.opendota.com/api/players/252812353/peers")
+// fetch("https://api.opendota.com/api/players/252812353/wl")
 // .then(response => {
 // 	return response.json()
 // })

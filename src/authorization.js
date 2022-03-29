@@ -10,7 +10,8 @@ let userMatchesObj;
 let userMatchesInfo = [];
 let serverHeroesObj;
 let userFriendsObj;
-let userID
+let userID;
+let userWLObj;
 
 // По нажатию проверяем пароль и вызываем функцию, которые отправляет запрос на получение данных по ID указанному в Input(email)
 buttonAuthorizeIn.addEventListener("click", () => {
@@ -26,6 +27,7 @@ buttonAuthorizeIn.addEventListener("click", () => {
         getUserMatchesData(userID)
         getServerHeroesName();
         getTopFriends(userID);
+        getUserWinLose(userID)
     }
 })
 
@@ -100,6 +102,20 @@ function createUserFriendsObj(userFriendsData) {
     userFriendsObj = userFriendsData;
 }
 
+function getUserWinLose(userId) {
+    fetch(`https://api.opendota.com/api/players/${userId}/wl`)
+    .then(response => {
+    	return response.json()
+    })
+    .then(data => {
+    	createUserWLObj(data);
+    })
+}
+
+function createUserWLObj(userWLData) {
+    userWLObj = userWLData;
+}
+
 // Закрытие окна авторизации 
 function closePopUp() {
     let buttonCancel = document.querySelector(".cancel");
@@ -146,6 +162,7 @@ function showProfileMainInfo() {
     showCurRank(userMainObj);
     getAllMatches(userMatchesObj);
     showTopFriend(userFriendsObj);
+    showWinLose(userWLObj);
 } 
 
 function showTopHero(userHeroData) {
@@ -186,6 +203,16 @@ function showMainInfo(userData) {
     <img class="medium-img userInfo" src="${userData.profile.avatarfull}" alt="">`
 }
 
+function showWinLose(winLoseData) {
+    let games = document.querySelector(".all-games");
+    let wins = document.querySelector(".all-wins");
+    let loses = document.querySelector(".all-loses");
+
+    games.innerHTML = `${winLoseData.win + winLoseData.lose}`;
+    wins.innerHTML = `${winLoseData.win}`;
+    loses.innerHTML = `${winLoseData.lose}`;
+}
+
 function showMatches(matchesData) {
     let matchesContainer = document.querySelector(".previous-matches");
     matchesContainer.innerHTML = "";
@@ -202,28 +229,35 @@ function showMatches(matchesData) {
         let matchHeroNameImg = matchHeroName.replace(/\s/g, '_').toLowerCase();
         let matchScore;
         let dateStart;
-        console.log(userMatchesInfo);
         userMatchesInfo.forEach( (element) => {
             if (matchesData[index].match_id == element.match_id) {
-                matchScore = `<p class="description small red">${element.dire_score}</p> - <p class="description small green">${element.radiant_score}</p>`;
                 dateStart = new Date(element.start_time * 1000)
-            }
-            // if (element.players[0].account_id == userID || item.win == 1) {
-            //     radiantWin = '<p class="description small green">Победа</p>';
-            // } else {
-            //     radiantWin = '<p class="description small red">Поражение</p>';
-            // }
-            console.log(element.players);
-            element.players.forEach( (player) => {
-                console.log();
-                if (player.personaname == userMainObj.personaname) {
-                    if (player.win) {
-                        radiantWin = '<p class="description small green">Победа</p>';
-                    } else {
-                        radiantWin = '<p class="description small red">Поражение</p>';
+                element.players.forEach( (player) => {
+                    console.log(player.win, player.personaname, userMainObj.profile.personaname);
+                    if (player.personaname == userMainObj.profile.personaname) {
+                        if (player.win == 1) {
+                            radiantWin = '<p class="description small green">Победа</p>';
+                        } else {
+                            radiantWin = '<p class="description small red">Поражение</p>';
+                        }
+
+                        if (player.win == 1) {
+                            if (player.isRadiant) {
+                                matchScore = `<p class="description small red">${element.dire_score}</p> - <p class="description small green">${element.radiant_score}</p>`
+                            } else {
+                                matchScore = `<p class="description small green">${element.dire_score}</p> - <p class="description small red">${element.radiant_score}</p>`
+                            }
+                        } else {
+                            if (player.isRadiant) {
+                                matchScore = `<p class="description small green">${element.dire_score}</p> - <p class="description small red">${element.radiant_score}</p>`
+                            } else {
+                                matchScore = `<p class="description small red">${element.dire_score}</p> - <p class="description small green">${element.radiant_score}</p>`
+                            }
+                        }
+                        // console.log("Нашёлся!");
                     }
-                }
-            })
+                })
+            }
 
         });
         matchesContainer.innerHTML += `

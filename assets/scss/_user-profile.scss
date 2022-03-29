@@ -130,6 +130,18 @@
             padding: 0 0 0 5%;
             width: 30%;
             .general-stat {
+                margin: 5% 0 0 0;
+                .stat-item {
+                    width: 55%;
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 20px;
+                    text-align: right;
+                    margin-top: 3%;
+                    p {
+                        text-align: right;
+                    }
+                }
                 .top-friends {
                     margin: 5% 0 0 0;
                     .friend {

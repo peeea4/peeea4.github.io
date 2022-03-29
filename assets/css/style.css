@@ -234,7 +234,7 @@ h5 {
 .footer .footer-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
 }
 .footer .footer-top .footer-info {
   display: flex;
@@ -261,12 +261,47 @@ h5 {
 .footer .footer-top .footer-buttons {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+}
+.footer .footer-top .footer-buttons .buttons-container {
+  margin: 5% 0;
 }
 .footer .footer-bottom {
+  margin: 3% 0 0 0;
   text-align: center;
 }
 
+@media (max-width: 575px) {
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer-top {
+    flex-direction: column-reverse;
+  }
+  .footer-top .footer-links {
+    gap: 0px;
+  }
+  .footer-top .footer-links a {
+    text-align: center;
+  }
+
+  .footer-buttons .buttons-container {
+    flex-direction: column;
+  }
+
+  .footer-info {
+    align-items: center;
+    width: 100%;
+  }
+  .footer-info .logo {
+    display: none;
+  }
+  .footer-info .social-links {
+    width: 100%;
+    justify-content: center;
+  }
+}
 .container-for-cancel {
   position: relative;
 }
@@ -604,6 +639,20 @@ h5 {
 .user-profile .profile-show .profile-aside {
   padding: 0 0 0 5%;
   width: 30%;
+}
+.user-profile .profile-show .profile-aside .general-stat {
+  margin: 5% 0 0 0;
+}
+.user-profile .profile-show .profile-aside .general-stat .stat-item {
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: right;
+  margin-top: 3%;
+}
+.user-profile .profile-show .profile-aside .general-stat .stat-item p {
+  text-align: right;
 }
 .user-profile .profile-show .profile-aside .general-stat .top-friends {
   margin: 5% 0 0 0;

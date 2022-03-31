@@ -48,3 +48,12 @@
 		padding: 20px 60px;
 	}
 }
+@media (max-width: 575px) {
+	.tutorial {
+		margin: 0 0 5% 0;
+		.tutorial-items {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(3, 1fr);
+		}
+	}
+}

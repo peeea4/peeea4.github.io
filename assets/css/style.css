@@ -77,6 +77,17 @@ h5 {
   font-weight: 400;
 }
 
+@media (max-width: 575px) {
+  h1 {
+    font-size: 50px;
+    line-height: 70px;
+  }
+
+  h2 {
+    font-size: 35px;
+    text-align: center;
+  }
+}
 .btn {
   flex: 1 1 auto;
   margin: 5px;
@@ -170,6 +181,15 @@ h5 {
   padding: 20px 60px;
 }
 
+@media (max-width: 575px) {
+  .tutorial {
+    margin: 0 0 5% 0;
+  }
+  .tutorial .tutorial-items {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
 .faq {
   padding-top: 10%;
   padding-bottom: 10%;
@@ -193,20 +213,26 @@ h5 {
   border: none;
   outline: none;
   transition: 0.4s;
+  position: relative;
 }
 .faq .show-text:after {
   content: "";
+  position: absolute;
+  top: auto;
+  right: 0;
   background-image: url("../icons/pluse.png");
   width: 24px;
   height: 24px;
   color: #777;
   font-weight: bold;
-  float: right;
-  margin-left: 5px;
+  margin-left: 25px;
 }
 .faq .show-text:hover {
   transform: scale(1.01);
   background-color: #ccc;
+}
+.faq .show-text span {
+  text-align: left;
 }
 .faq .text {
   font-size: 16px;
@@ -227,6 +253,11 @@ h5 {
   height: 24px;
 }
 
+@media (max-width: 575px) {
+  .faq .show-text {
+    text-align: left;
+  }
+}
 .footer {
   border-top: 2px solid black;
   padding: 2em 0 0.5em 0;
@@ -271,16 +302,12 @@ h5 {
 }
 
 @media (max-width: 575px) {
-  .footer {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
   .footer-top {
     flex-direction: column-reverse;
   }
   .footer-top .footer-links {
     gap: 0px;
+    margin: 5% 0%;
   }
   .footer-top .footer-links a {
     text-align: center;
@@ -687,9 +714,9 @@ h5 {
   align-items: center;
   position: fixed;
   top: 0;
-  height: 10vh;
+  height: 100px;
   width: 1200px;
-  padding-top: 1em;
+  padding: 1em;
   background-color: #ffffff;
   z-index: 1;
 }
@@ -747,12 +774,101 @@ h5 {
   background: #4e37a7;
 }
 
+@media (max-width: 575px) {
+  /* Гамбургер иконка */
+  .menu-btn {
+    display: flex;
+    justify-content: flex-end;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    z-index: 2;
+    overflow: hidden;
+    right: 20px;
+  }
+  .menu-btn span {
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222222;
+    transition: all 0.5s;
+  }
+
+  .menu-btn span:nth-of-type(2) {
+    top: calc(50% - 5px);
+  }
+
+  .menu-btn span:nth-of-type(3) {
+    top: calc(50% + 5px);
+  }
+
+  /* Меняем гамбургер иконку, когда меню открыто */
+  .menu-btn.active span {
+    background-color: #ffffff;
+  }
+
+  .menu-btn.active span:nth-of-type(1) {
+    display: none;
+  }
+
+  .menu-btn.active span:nth-of-type(2) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(45deg);
+  }
+
+  .menu-btn.active span:nth-of-type(3) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(-45deg);
+  }
+
+  /* Меню, которое будет появляться */
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background: #222222ef;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+  }
+  .navigation .logo {
+    padding-top: 20px;
+    color: #ffffff;
+  }
+  .navigation .links, .navigation .sign {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+  }
+  .navigation .links .link, .navigation .sign .link {
+    font-size: 30px;
+    padding: 40px 0 0 0;
+    color: white;
+    background-color: #22222200;
+  }
+  .navigation .links {
+    padding: 50px 0 0 0;
+  }
+
+  .navigation.active {
+    transform: translateX(0);
+  }
+}
 .header {
-  padding-top: 14vh;
+  padding-top: 200px;
   height: 86vh;
 }
 .header .header-content {
-  margin-top: 5%;
   display: flex;
 }
 .header .header-content .header-info {
@@ -774,6 +890,36 @@ h5 {
   margin-top: 5%;
 }
 
+@media (max-width: 575px) {
+  .header {
+    padding: 50px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .header .header-content {
+    display: block;
+  }
+  .header .header-content .header-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .header .header-content .header-info .titles h1 {
+    text-align: left;
+  }
+  .header .header-content .header-info .titles h1 span {
+    font-size: 60px;
+  }
+  .header .header-content .header-info .buttons-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .header .header-content .header-example {
+    display: none;
+  }
+}
 .red {
   color: #ff000d;
 }
@@ -792,4 +938,10 @@ html .container {
 
 .logo {
   width: 100px;
+}
+
+@media (max-width: 575px) {
+  html .container {
+    margin: 0 40px;
+  }
 }/*# sourceMappingURL=style.css.map */

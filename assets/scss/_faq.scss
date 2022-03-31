@@ -19,19 +19,25 @@
 		border: none;
 		outline: none;
 		transition: 0.4s;
+		position: relative;
 		&:after {
 			content: "";
+			position: absolute;
+			top: auto;
+			right: 0;
 			background-image: url("../icons/pluse.png");
 			width: 24px;
 			height: 24px;
 			color: #777;
 			font-weight: bold;
-			float: right;
-			margin-left: 5px;
+			margin-left: 25px;
 		}
 		&:hover {
 			transform: scale(1.01);
 			background-color: #ccc;
+		}
+		span {
+			text-align: left;
 		}
 	}
 	.text {
@@ -50,6 +56,13 @@
 			background-image: url("../icons/minus.png");
 			width: 24px;
 			height: 24px;
+		}
+	}
+}
+@media (max-width: 575px) {
+	.faq {
+		.show-text {
+			text-align: left;
 		}
 	}
 }

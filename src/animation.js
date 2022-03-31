@@ -33,3 +33,11 @@ btnsNavigateExample.forEach( element => {
 		document.location.href = "#tutorial"
 	})
 })
+
+let menuBtn = document.querySelector('.menu-btn');
+let navigation = document.querySelector('.navigation');
+
+menuBtn.addEventListener('click', function(){
+	menuBtn.classList.toggle('active');
+	navigation.classList.toggle('active');
+})

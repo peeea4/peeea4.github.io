@@ -1,8 +1,7 @@
 .header {
-	padding-top: 14vh;
+	padding-top: 200px;
 	height: 86vh;
 	.header-content {
-		margin-top: 5%;
 		display: flex;
 		.header-info {
 			width: 45%;
@@ -22,6 +21,38 @@
 			}
 			.buttons-container {
 				margin-top: 5%;
+			}
+		}
+	}
+}
+@media (max-width: 575px) {
+	.header {
+		padding: 50px 0 0 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		.header-content {
+			display: block;
+			.header-info {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				.titles {
+					h1 {
+						text-align: left;
+						span {
+							font-size: 60px;
+						}
+					}
+				}
+				.buttons-container {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+			.header-example {
+				display: none;
 			}
 		}
 	}

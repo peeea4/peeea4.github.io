@@ -45,14 +45,11 @@
 	}
 }
 @media (max-width: 575px) {
-	.footer {
-		padding-left: 20px;
-		padding-right: 20px;
-	}
 	.footer-top {
 		flex-direction: column-reverse;
 		.footer-links {
 			gap: 0px;
+			margin: 5% 0%;
 			a {
 				text-align: center;
 			}

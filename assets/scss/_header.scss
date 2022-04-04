@@ -1,12 +1,12 @@
 .header {
-	padding-top: 200px;
+	padding: 200px 25px 0 25px;
 	height: 86vh;
 	.header-content {
 		display: flex;
 		.header-info {
 			width: 45%;
 			.titles {
-				margin-top: 12%;
+				margin: 80px 0 0 0;
 				h1 {
 					span {
 						font-size: 70px;
@@ -18,6 +18,13 @@
 						text-transform: uppercase;
 					}
 				}
+				p {
+					margin: 5% 0;
+					text-align: right;
+				}
+				.mobile-title {
+					display: none;
+				}
 			}
 			.buttons-container {
 				margin-top: 5%;
@@ -25,7 +32,7 @@
 		}
 	}
 }
-@media (max-width: 575px) {
+@media (max-width: 767px) {
 	.header {
 		padding: 50px 0 0 0;
 		display: flex;
@@ -40,9 +47,37 @@
 				justify-content: flex-start;
 				.titles {
 					h1 {
-						text-align: left;
+						text-align: center;
+						line-height: 55px;
 						span {
-							font-size: 60px;
+							all: unset;
+						}
+					}
+					p {
+						margin: 7% 0;
+						text-align: left;
+					}
+					.mobile-title {
+						margin: 20% 0;
+						display: block;
+						font-size: 80px;
+						font-weight: 600;
+						background: linear-gradient(90deg, rgb(95, 39, 112) 0%, rgba(108, 80, 223, 1) 100%);
+						background-size: 200% 200%;
+						color: transparent;
+						background-clip: text;
+						-webkit-background-clip: text;
+						animation: gradient 5s ease infinite;
+					}
+					@keyframes gradient{
+						0% {
+							background-position: 0% 50%;
+						}
+						50% {
+							background-position: 100% 50%;
+						}
+						100% {
+							background-position: 0% 50%;
 						}
 					}
 				}
@@ -53,6 +88,64 @@
 			}
 			.header-example {
 				display: none;
+			}
+		}
+	}
+}
+@media (min-width:575px) and (max-width:767px) {
+	.header {
+		.header-content {
+			.header-info {
+				.titles {
+					h1 {
+						text-align: center; 
+					}
+					.mobile-title {
+						text-align: center;
+					}
+				}
+				.buttons-container {
+					width: 85%;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 450px) {
+	.header {
+		.header-content {
+			.header-info {
+				.titles {
+					.mobile-title {
+						font-size: 65px;
+					}
+				}
+			}
+		}
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.header {
+		.header-content {
+			.header-info {
+				width: 50%;
+				.titles {
+					h1 {
+						text-align: left;
+					}
+				}
+			}
+			.header-example {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				svg {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 400px;
+				}
 			}
 		}
 	}

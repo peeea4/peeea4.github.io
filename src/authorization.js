@@ -18,7 +18,6 @@ buttonAuthorizeIn.addEventListener("click", () => {
     let password = "1";
     let passwordInput = document.querySelector(".passInp").value;
     let emailInput = document.querySelector(".emailInp").value;
-    
     if(passwordInput == password) {
         userID = emailInput;
         getUserMainData(userID);
@@ -146,14 +145,12 @@ butttonImage.addEventListener("click", () => {
 })
 
 buttonLogo.addEventListener("click", () => {
-	navigation.style = "display:grid; align-items: center;";
-	containerLinks.style = "display:flex; justify-content: space-around;";
+	containerLinks.style = "display: flex; align-items: flex-start; justify-content: space-around;";
 	headerContent.style.display = "flex";
 	header.style.height = "88vh"
 	main.style.display = "block";
 	userProfile.style.display = "none";
 })
-
 // 252812353
 
 function showProfileMainInfo() {
@@ -199,8 +196,10 @@ function showCurRank(userData) {
 
 function showMainInfo(userData) {
     let containerGeneralInfo = document.querySelector(".name-and-country");
-    containerGeneralInfo.innerHTML = `<h3 class="nickname userInfo">${userData.profile.personaname}</h3>
-    <img class="medium-img userInfo" src="${userData.profile.avatarfull}" alt="">`
+    containerGeneralInfo.innerHTML = `
+        <img class="medium-img userInfo" src="${userData.profile.avatarfull}" alt="">
+        <h3 class="nickname userInfo">${userData.profile.personaname}</h3>
+    `;
 }
 
 function showWinLose(winLoseData) {
@@ -233,7 +232,6 @@ function showMatches(matchesData) {
             if (matchesData[index].match_id == element.match_id) {
                 dateStart = new Date(element.start_time * 1000)
                 element.players.forEach( (player) => {
-                    console.log(player.win, player.personaname, userMainObj.profile.personaname);
                     if (player.personaname == userMainObj.profile.personaname) {
                         if (player.win == 1) {
                             radiantWin = '<p class="description small green">Победа</p>';
@@ -254,11 +252,9 @@ function showMatches(matchesData) {
                                 matchScore = `<p class="description small red">${element.dire_score}</p> - <p class="description small green">${element.radiant_score}</p>`
                             }
                         }
-                        // console.log("Нашёлся!");
                     }
                 })
             }
-
         });
         matchesContainer.innerHTML += `
             <div class="matсh">
@@ -291,7 +287,6 @@ function showMatches(matchesData) {
             elem.classList.add("matсh-show")
         }, indexForTime*300)
     });
-
 }
 
 function getAllMatches(matchesData) {    
@@ -307,9 +302,7 @@ function getMatchById(matchId) {
     })
     .then(data => {
         userMatchesInfo.push(data)
-        console.log(data);
         if (userMatchesInfo.length == 10) {
-            
             showMatches(userMatchesObj);
         }
     })

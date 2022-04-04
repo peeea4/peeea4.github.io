@@ -13,7 +13,7 @@
                 grid-template-columns: 1fr 1fr;
                 .name-and-country {
                     display: flex;
-                    flex-direction: column-reverse;
+                    flex-direction: column;
                     .nickname {
                         margin: 5% 0 0 0;
                         display: flex;
@@ -166,8 +166,6 @@
                             .friend-games {
                                 margin: 0 1em 0 0;
                             }
-                            .friend-win {
-                            }
                         }
                     }
                 }
@@ -177,7 +175,42 @@
 
 }
 
-// M E D I A  Q U E R I E S
-// @media screen {
+
+@media (max-width: 575px) {
+    .user-profile {
+        padding-top: 70px;
+        .profile-header {
+            .pofile-description {
+                display: flex;
+                .personal-data {
+                    display: flex;
+                    align-items: flex-start;
+                    .name-and-country {
+                        display: flex;
+                        flex-direction: column;
+                        .medium-img {
+                            border: 1px solid black;
+                            width: 160px;
+                            height: 160px;
+                        }
+                    }
+                    .popular-hero {
+                        margin: 0 0 0 6%;
+                    }
+                }
+                .current-rank {
+                    .rank-star {
+                        width: 100px;
+                    }
+                    .rank{
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+    .profile-show {
+        flex-direction: column;
+    }
     
-// }
+}

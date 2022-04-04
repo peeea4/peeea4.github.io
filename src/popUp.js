@@ -15,7 +15,9 @@ signInButton.addEventListener('click', () => {
     container.classList.remove('right-panel-active');
 });
 
-signInUpButton.addEventListener("click", showPopUp);
+signInUpButton.addEventListener("click", () => {
+    showPopUp()
+});
 
 tryButtonList.forEach( element => {
     element.addEventListener("click", showPopUp);

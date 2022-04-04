@@ -1,5 +1,5 @@
 .faq {
-	padding-top: 10%;
+	padding: 10% 25px 0 25px;
 	h2 {
 		text-align: center;
 		margin-bottom: 5vh;
@@ -20,17 +20,16 @@
 		outline: none;
 		transition: 0.4s;
 		position: relative;
-		&:after {
-			content: "";
-			position: absolute;
-			top: auto;
-			right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.button-image {
 			background-image: url("../icons/pluse.png");
-			width: 24px;
+			min-width: 24px;
 			height: 24px;
 			color: #777;
 			font-weight: bold;
-			margin-left: 25px;
+			overflow: hidden;
 		}
 		&:hover {
 			transform: scale(1.01);
@@ -44,19 +43,15 @@
 		font-size: $s-desc-fz;
 		font-weight: $s-desc-fw;
 		overflow: hidden;
-		padding: 0 40px;
+		padding: 0 20px;
 		background-color: white;
 		max-height: 0;
 		transition: max-height 0.2s ease-out;
 	}
-	.active {
-		background-color: #ccc;
-		&:after {
-			content: "";
-			background-image: url("../icons/minus.png");
-			width: 24px;
-			height: 24px;
-		}
+	.show-text.active .button-image {
+		background-image: url("../icons/minus.png");
+		width: 24px;
+		height: 24px;
 	}
 }
 @media (max-width: 575px) {

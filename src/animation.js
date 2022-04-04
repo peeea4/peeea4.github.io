@@ -36,8 +36,19 @@ btnsNavigateExample.forEach( element => {
 
 let menuBtn = document.querySelector('.menu-btn');
 let navigation = document.querySelector('.navigation');
+let links = Array.from(document.querySelectorAll(".links"));
 
-menuBtn.addEventListener('click', function(){
+menuBtn.addEventListener('click', () => {
 	menuBtn.classList.toggle('active');
 	navigation.classList.toggle('active');
+})
+
+links.forEach( (link) => {
+	link.addEventListener("click", () => {
+		menuBtn.click()
+	})
+})
+let buttonInUp = document.querySelector(".signInUp");
+buttonInUp.addEventListener("click", () => {
+	menuBtn.click()
 })

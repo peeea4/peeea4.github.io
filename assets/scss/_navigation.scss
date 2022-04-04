@@ -1,11 +1,11 @@
 .navigation {
 	display: grid;
-	grid-template-columns: auto 50% 20%;
+	grid-template-columns: 20% 50% 30%;
 	align-items: center;
 	position: fixed;
 	top: 0;
 	height: 100px;
-	width: 1200px;
+	width: 100%;
 	padding: 1em;
 	background-color: #ffffff;
 	z-index: 1;
@@ -41,7 +41,7 @@
 	}
 	.sign {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: center;
 		gap: 1.5em;
 		align-items: center;
 		.exit {
@@ -65,17 +65,20 @@
 }
 
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
 		/* Гамбургер иконка */
+		
 	.menu-btn {
 		display: flex;
 		justify-content: flex-end;
 		width: 30px;
 		height: 30px;
 		position: fixed;
-		z-index:2;
-		overflow: hidden;
-		right: 20px;
+		top: 25px;
+		right: 25px;
+		z-index:4;
+		background-color: #ffffff00;
+		cursor: pointer;
 		span {
 			width: 30px;
 			height: 2px;
@@ -122,6 +125,7 @@
 		width: 100%;
 		height: 100%;
 		padding: 15px;
+		z-index: 3;
 		background: #222222ef;
 		transform: translateX(-100%);
 		transition: transform 0.5s; 
@@ -137,7 +141,7 @@
 			gap: 0;
 			.link {
 				font-size: 30px;
-				padding: 40px 0 0 0;
+				padding: 20px 0 20px 0;
 				color: white;
 				background-color: #22222200;
 			}
@@ -146,8 +150,30 @@
 			padding: 50px 0 0 0;
 		}
 	}
-
+	.clear-block {
+		display: block;
+		position: fixed;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 70px;
+		background-color: #ffffff;
+	}
 	.navigation.active {
 		transform: translateX(0);
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.navigation {
+		grid-template-columns: 22% 50% 22%;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.navigation {
+		grid-template-columns: 20% 50% 30%;
+		.sign {
+			justify-content: center;
+		}
 	}
 }

@@ -145,6 +145,7 @@ butttonImage.addEventListener("click", () => {
 })
 
 buttonLogo.addEventListener("click", () => {
+    navigation.style = "grid-template-columns: 20% 50% 30%;";
 	containerLinks.style = "display: flex; align-items: flex-start; justify-content: space-around;";
 	headerContent.style.display = "flex";
 	header.style.height = "88vh"
@@ -198,7 +199,10 @@ function showMainInfo(userData) {
     let containerGeneralInfo = document.querySelector(".name-and-country");
     containerGeneralInfo.innerHTML = `
         <img class="medium-img userInfo" src="${userData.profile.avatarfull}" alt="">
-        <h3 class="nickname userInfo">${userData.profile.personaname}</h3>
+        <div class="nickname">
+            <h3 class="userInfo">${userData.profile.personaname}</h3>
+            <div class="current-rank"></div>
+        </div>
     `;
 }
 

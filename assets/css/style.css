@@ -565,6 +565,166 @@ h5 {
   transform: translateY(20%);
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .container-pop {
+    width: 600px;
+    min-height: 400px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .container-pop {
+    width: 520px;
+    min-height: 440px;
+  }
+}
+@media (max-width: 575px) {
+  .pop-up {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(51, 51, 51, 0.37);
+  }
+  .pop-up .container-for-cancel {
+    position: relative;
+  }
+  .pop-up .container-for-cancel .cancel {
+    z-index: 10;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    margin: 0;
+  }
+
+  .container-pop {
+    width: 280px;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+  }
+  .container-pop .form-container {
+    font-size: 34px;
+    width: 100%;
+  }
+  .container-pop .form-container .form-popup {
+    padding: 0 15px;
+  }
+  .container-pop .form-container form {
+    width: 85%;
+    padding: 0 15px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .container-pop .form-container form .social-container {
+    margin: 20px 0;
+  }
+  .container-pop .form-container form .social-container a {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+  }
+  .container-pop .sign-in-container {
+    left: 0;
+    width: 70%;
+    z-index: 2;
+  }
+  .container-pop .sign-up-container {
+    left: 0;
+    width: 70%;
+    z-index: 1;
+    opacity: 0;
+  }
+  .container-pop .overlay-container {
+    position: absolute;
+    top: 0;
+    left: 70%;
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 100;
+  }
+  .container-pop .overlay-container .overlay {
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateY(0);
+    transition: transform 0.6s ease-in-out;
+  }
+  .container-pop .overlay-container .overlay .overlay-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.6s ease-in-out;
+  }
+  .container-pop .overlay-container .overlay .overlay-panel h2 {
+    display: none;
+  }
+  .container-pop .overlay-container .overlay .overlay-panel button.ghost {
+    width: 80%;
+    padding: 6px 12px;
+  }
+  .container-pop .overlay-container .overlay .overlay-right {
+    right: 0;
+    transform: translateY(0);
+  }
+  .container-pop .overlay-container .overlay .overlay-left {
+    transform: translateY(0%);
+  }
+
+  /* Move signin to right */
+  .container-pop.right-panel-active .sign-in-container {
+    transform: translateY(100%);
+  }
+
+  /* Move overlay to left */
+  .container-pop.right-panel-active .overlay-container {
+    transform: translateX(0%);
+  }
+
+  /* Bring signup over signin */
+  .container-pop.right-panel-active .sign-up-container {
+    transform: translateX(0%);
+    opacity: 1;
+    z-index: 5;
+  }
+
+  /* Move overlay back to right */
+  .container-pop.right-panel-active .overlay {
+    transform: translateX(50%);
+  }
+
+  /* Bring back the text to center */
+  .container-pop.right-panel-active .overlay-left {
+    transform: translateY(0);
+  }
+
+  /* Same effect for right */
+  .container-pop.right-panel-active .overlay-right {
+    transform: translateY(20%);
+  }
+}
 .user-profile {
   display: none;
   flex-direction: column;
@@ -579,28 +739,44 @@ h5 {
   justify-content: space-between;
 }
 .user-profile .profile-header .pofile-description .personal-data {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .user-profile .profile-header .pofile-description .personal-data .name-and-country {
-  display: flex;
-  flex-direction: column;
-}
-.user-profile .profile-header .pofile-description .personal-data .name-and-country .nickname {
-  margin: 5% 0 0 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-.user-profile .profile-header .pofile-description .personal-data .name-and-country .user-country {
-  width: 32px;
-  height: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 .user-profile .profile-header .pofile-description .personal-data .name-and-country .medium-img {
   border: 3px solid black;
   width: 220px;
   height: 220px;
+  grid-column: 1/3;
+}
+.user-profile .profile-header .pofile-description .personal-data .name-and-country .nickname {
+  margin: 5% 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-profile .profile-header .pofile-description .personal-data .name-and-country .nickname .current-rank {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+.user-profile .profile-header .pofile-description .personal-data .name-and-country .nickname .current-rank img {
+  width: 75px;
+  height: 75px;
+}
+.user-profile .profile-header .pofile-description .personal-data .name-and-country .nickname .current-rank .rank-star {
+  position: absolute;
+  top: 0px;
+}
+.user-profile .profile-header .pofile-description .personal-data .name-and-country .nickname .current-rank .rank {
+  padding-top: 10px;
 }
 .user-profile .profile-header .pofile-description .personal-data .popular-hero {
   margin: 0 0 0 15%;
@@ -615,22 +791,6 @@ h5 {
 }
 .user-profile .profile-header .pofile-description .personal-data .popular-hero p {
   margin: 3% 0 0 0;
-}
-.user-profile .profile-header .pofile-description .current-rank {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  position: relative;
-}
-.user-profile .profile-header .pofile-description .current-rank img {
-  width: 60%;
-}
-.user-profile .profile-header .pofile-description .current-rank .rank-star {
-  position: absolute;
-  top: 0px;
-}
-.user-profile .profile-header .pofile-description .current-rank .rank {
-  padding-top: 10px;
 }
 .user-profile .profile-show {
   display: flex;
@@ -796,6 +956,7 @@ h5 {
   .user-profile .profile-header .pofile-description .personal-data {
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
   }
   .user-profile .profile-header .pofile-description .personal-data .name-and-country {
     display: flex;
@@ -808,15 +969,6 @@ h5 {
   }
   .user-profile .profile-header .pofile-description .personal-data .popular-hero {
     margin: 0 0 0 6%;
-  }
-  .user-profile .profile-header .pofile-description .current-rank {
-    width: 20%;
-  }
-  .user-profile .profile-header .pofile-description .current-rank .rank-star {
-    width: 100px;
-  }
-  .user-profile .profile-header .pofile-description .current-rank .rank {
-    width: 100px;
   }
   .user-profile .profile-show {
     flex-direction: column;

@@ -37,6 +37,7 @@ btnsNavigateExample.forEach( element => {
 let menuBtn = document.querySelector('.menu-btn');
 let navigation = document.querySelector('.navigation');
 let links = Array.from(document.querySelectorAll(".links"));
+let logoBtn = document.querySelector(".logo")
 
 menuBtn.addEventListener('click', () => {
 	menuBtn.classList.toggle('active');
@@ -50,5 +51,8 @@ links.forEach( (link) => {
 })
 let buttonInUp = document.querySelector(".signInUp");
 buttonInUp.addEventListener("click", () => {
+	menuBtn.click()
+})
+logoBtn.addEventListener("click", () => {
 	menuBtn.click()
 })

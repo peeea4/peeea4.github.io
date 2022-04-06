@@ -1,6 +1,7 @@
 .user-profile {
     display: none;
     flex-direction: column;
+    padding: 0 25px;
     .profile-header {
         display: flex;
         .pofile-description {
@@ -72,7 +73,7 @@
                     opacity: 0;
                     display: grid;
                     grid-template-rows: 1fr;
-                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr;
                     transition: all 0.2s;
                     margin: 2% 0 0 0;
                     .match-hero {
@@ -85,23 +86,23 @@
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
-                        align-items: flex-start;
+                        align-items: center;
                         padding: 0 0 0 5%;
                     }
                     .radiant-win {
                         display: flex;
                         align-items: center;
-                        justify-content: flex-start;
+                        justify-content: center;
                     }
                     .match-duration {
                         display: flex;
                         align-items: center;
-                        justify-content: flex-start;
+                        justify-content: center;
                     }
                     .match-score {
                         display: flex;
                         align-items: center;
-                        justify-content: flex-start;
+                        justify-content: center;
                     }
                     .match-time-start {
                         display: flex;
@@ -172,16 +173,73 @@
             }
         }
     }
-
 }
 
 
-@media (max-width: 575px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     .user-profile {
-        padding-top: 70px;
+        .profile-show {
+            .main-show {
+                .previous-matches {
+                    .matсh {
+                        grid-template-columns: 3fr 2fr 3fr 3fr 4fr;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .user-profile {
+        .profile-show {
+            .main-show {
+                .previous-matches {
+                    .matсh {
+                        grid-template-rows: 1fr;
+                        grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+                        .match-hero {
+                            .hero-img {
+                                width: 96px;
+                                height: 54px;
+                            }
+                        }
+                        .hero-kda {
+                            align-items: center;
+                            padding: 0 0 0 5%;
+                        }
+                        .radiant-win {
+                            p {
+                                font-size: 14px;
+                            }
+                            justify-content: flex-start;
+                        }
+                        .match-duration {
+                            justify-content: center;
+                        }
+                        .match-score {
+                            justify-content: center;
+                        }
+                        .match-time-start {
+                            justify-content: center;
+                            p {
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .user-profile {
         .profile-header {
+            padding-top: 90px;
             .pofile-description {
                 display: flex;
+                justify-content:space-between;
                 .personal-data {
                     display: flex;
                     align-items: flex-start;
@@ -199,6 +257,7 @@
                     }
                 }
                 .current-rank {
+                    width: 20%;
                     .rank-star {
                         width: 100px;
                     }
@@ -208,9 +267,45 @@
                 }
             }
         }
+        .profile-show {
+            flex-direction: column;
+            .main-show {
+                width: 100%;
+                h2 {
+                    text-align: center;
+                }
+                .previous-matches {
+                    .matсh {
+                        border: 1px solid black;
+                        padding: 10px;
+                        grid-template-rows: 1fr;
+                        grid-template-columns: repeat(5, 1fr);
+                        .match-hero {
+                            .hero-img {
+                                width: 96px;
+                                height: 54px;
+                            }
+                        }
+                        .radiant-win {
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            .profile-aside {
+                width: auto;
+                justify-content: center;
+                h2 {
+                    text-align: center;
+                }
+                .general-stat {
+                    .stat-item {
+                        width: 100%;
+                    }
+                }
+            }
+        } 
     }
-    .profile-show {
-        flex-direction: column;
-    }
-    
 }

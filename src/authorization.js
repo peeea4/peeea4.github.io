@@ -134,7 +134,7 @@ function showProfileIcon(userInfo) {
 
 // По нажатию меняем меню и меняем весь контент со страницы с общей информацией на профиль пользователя
 butttonImage.addEventListener("click", () => {
-    navigation.style = "display:flex; justify-content:space-between;";
+    navigation.style = "grid-template-columns: 70% 30%;";
     containerLinks.style.display = "none";
     headerContent.style.display = "none";
     header.style.height = "auto"
@@ -274,9 +274,6 @@ function showMatches(matchesData) {
                 </div>
                 <div class="match-score">
                     <p class="description small">${matchScore}</p>
-                </div>
-                <div class="match-time-start">
-                    <p class="description small">Начало: ${dateStart.getHours()}:${dateStart.getMinutes()} ${dateStart.getDate()}.${dateStart.getMonth()}.${dateStart.getFullYear()}</p>
                 </div>
             </div>
         `;
